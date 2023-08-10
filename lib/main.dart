@@ -99,42 +99,84 @@ class MapSampleState extends State<MapSample> {
                 children: [
                   // Erste Seite (Google Maps Ansicht)
                   Container(
-                    padding: EdgeInsets.all(16.0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        Image.asset('assets/images/schloss.png'),
                         SizedBox(height: 10),
-                        Text(
-                          'Dein Text hier',
-                          style: TextStyle(fontSize: 18.0),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
+                          child: Text(
+                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
+                            style: TextStyle(
+                              fontSize: 14.0, // Größe des Titels
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5), // Kleiner Abstand
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
+                          child: Text(
+                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
+                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
+                          ),
                         ),
                       ],
                     ),
                   ),
                   // Zweite Seite (deine Karte mit Bild und Text)
                   Container(
-                    padding: EdgeInsets.all(16.0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        Image.asset('assets/images/schloss.png'),
                         SizedBox(height: 10),
-                        Text(
-                          'Dein Text hier',
-                          style: TextStyle(fontSize: 18.0),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
+                          child: Text(
+                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
+                            style: TextStyle(
+                              fontSize: 14.0, // Größe des Titels
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5), // Kleiner Abstand
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
+                          child: Text(
+                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
+                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
+                          ),
                         ),
                       ],
                     ),
                   ),
                   // Dritte Seite (deine Karte mit Bild und Text)
                   Container(
-                    padding: EdgeInsets.all(16.0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset('assets/images/schloss.png'),
                         SizedBox(height: 10),
-                        Text(
-                          'Test',
-                          style: TextStyle(fontSize: 18.0),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
+                          child: Text(
+                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
+                            style: TextStyle(
+                              fontSize: 14.0, // Größe des Titels
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 5), // Kleiner Abstand
+                        Padding(
+                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
+                          child: Text(
+                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
+                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
+                          ),
                         ),
                       ],
                     ),
