@@ -130,10 +130,10 @@ class MapSampleState extends State<MapSample> {
                     padding: EdgeInsets.all(16.0),
                     child: Column(
                       children: [
-                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        Image.asset('assets/images/schloss.png'),
                         SizedBox(height: 10),
                         Text(
-                          'Dein Text hier',
+                          'Test',
                           style: TextStyle(fontSize: 18.0),
                         ),
                       ],
