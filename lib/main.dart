@@ -46,6 +46,8 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
 
+  final PageController _pageController = PageController(initialPage: 0);
+
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
@@ -63,14 +65,85 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-        zoomControlsEnabled: false,
-        myLocationEnabled: true,
+      body: Stack (
+        children: [
+          GoogleMap(
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+            zoomControlsEnabled: false,
+            myLocationEnabled: true,
+          ),
+          Positioned(
+            bottom: 10, // Abstand zum unteren Rand
+            left: 10,   // Abstand zum linken Rand
+            right: 10,  // Abstand zum rechten Rand
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.5,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: PageView(
+                controller: _pageController,
+                children: [
+                  // Erste Seite (Google Maps Ansicht)
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        SizedBox(height: 10),
+                        Text(
+                          'Dein Text hier',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Zweite Seite (deine Karte mit Bild und Text)
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        SizedBox(height: 10),
+                        Text(
+                          'Dein Text hier',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Dritte Seite (deine Karte mit Bild und Text)
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Image.asset('assets/your_image.png'), // Passe den Bildpfad an
+                        SizedBox(height: 10),
+                        Text(
+                          'Dein Text hier',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: 
          Column(
@@ -87,7 +160,13 @@ class MapSampleState extends State<MapSample> {
             ),
 
             FloatingActionButton(
-              onPressed:  _goToTheCastle, 
+              onPressed: () {
+                _pageController.animateToPage(
+                  1, // Index der zweiten Seite (deine zusätzliche Karte)
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
               child: Icon(Icons.view_carousel_rounded),
             ),
 
