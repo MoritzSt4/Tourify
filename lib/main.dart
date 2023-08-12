@@ -7,9 +7,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 
-
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
   await FlutterConfig.loadEnvVariables();
 
   runApp(MyApp());
@@ -26,7 +25,8 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 219, 236, 255)),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Color.fromARGB(255, 219, 236, 255)),
         ),
         home: MapSample(),
       ),
@@ -54,7 +54,7 @@ class MapSampleState extends State<MapSample> {
     zoom: 16,
   );
 
-  static const CameraPosition _kLake = CameraPosition(
+  static const CameraPosition _castle = CameraPosition(
       bearing: 5,
       target: LatLng(49.01376089808605, 8.40441737052201),
       tilt: 60,
@@ -63,48 +63,39 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-        zoomControlsEnabled: false,
-        myLocationEnabled: true,
-      ),
-      floatingActionButton: 
-         Column(
+        body: GoogleMap(
+          mapType: MapType.normal,
+          initialCameraPosition: _kGooglePlex,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+          zoomControlsEnabled: false,
+          myLocationEnabled: true,
+        ),
+        floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          
           children: [
             FloatingActionButton(
-              onPressed:  _goToCurrentLocation,
+              onPressed: _goToCurrentLocation,
               child: Icon(Icons.gps_not_fixed),
             ),
-
             SizedBox(
               height: 20,
             ),
-
             FloatingActionButton(
-              onPressed:  _goToTheCastle, 
+              onPressed: _goToTheCastle,
               child: Icon(Icons.view_carousel_rounded),
             ),
-
             SizedBox(
               height: 20,
             ),
-          
-        ],
-        
-      )
-      
-    );
+          ],
+        ));
   }
 
   Future<void> _goToTheCastle() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    controller.animateCamera(CameraUpdate.newCameraPosition(_castle));
   }
 
   Future<void> _goToCurrentLocation() async {
@@ -114,17 +105,15 @@ class MapSampleState extends State<MapSample> {
       longOfUser = double.parse('${value.longitude}');
     });
 
-     CameraPosition posUser = CameraPosition(
-      bearing: 5,
-      target: LatLng(latOfUser, longOfUser),
-      zoom: 18);
+    CameraPosition posUser = CameraPosition(
+        bearing: 5, target: LatLng(latOfUser, longOfUser), zoom: 18);
 
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
   }
 
   Future<Position> _getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if(!serviceEnabled) {
+    if (!serviceEnabled) {
       return Future.error('Standortzugriff ist deaktiviert');
     }
 
@@ -137,15 +126,14 @@ class MapSampleState extends State<MapSample> {
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error("Dein Standortzugriff wurde abgelehnt, Standoertzugriff nicht möglich!");
+      return Future.error(
+          "Dein Standortzugriff wurde abgelehnt, Standoertzugriff nicht möglich!");
     }
 
     return await Geolocator.getCurrentPosition();
   }
-
 }
 // EXAMPLE ENDS --------------------------------------------------------------------------
-
 
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
@@ -166,11 +154,10 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Text('A random idea:'),
-          BigCard(pair: pair),    
-
+          BigCard(pair: pair),
           ElevatedButton(
             onPressed: () {
-              appState.getNext(); 
+              appState.getNext();
             },
             child: Text('Next'),
           ),
@@ -190,13 +177,12 @@ class BigCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);   
+    final theme = Theme.of(context);
     final style = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary,
     );
 
-    return Card
-    (
+    return Card(
       color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
