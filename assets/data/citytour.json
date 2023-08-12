@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "title": "Karlsruhe Innenstadt",
+      "description": "Entdecke mit dieser Stadtführung die unvergleichliche Atmosphäre der Karlsruher Innenstadt! Schlender durch die gemütlichen Gassen und belebten Plätze, die unsere Stadt so besonders machen. Du kennst vielleicht schon die Grundzüge der Karlsruher Innenstadt, aber lass dich überraschen, was wir noch in petto haben. Von der majestätischen Karlsruher Schloss bis hin zu den versteckten Cafés, die nur Einheimische kennen – diese Tour zeigt dir die Ecken und Winkel, die du noch nicht entdeckt hast.",
+      "duration": "2-4 Stunden",
+      "image": "castle_karlsruhe.jpg",
+      "category": "City life",
+      "locations": [
+        {
+            "id": 1,
+            "name": "Karlsruher Schloss",
+            "description": "Das Karlsruher Schloss, ein architektonisches Meisterwerk im Herzen der Stadt, verkörpert die historische Pracht und den Charme Karlsruhes. Dieses imposante Barockschloss, einst die Residenz der Markgrafen von Baden, ist ein wahres Juwel der Geschichte. Mit seiner markanten Kuppel und den eleganten Fassaden strahlt das Schloss majestätische Schönheit aus. Umgeben von weitläufigen Gärten und malerischen Alleen, lädt das Schlossgelände zum Flanieren und Entspannen ein. Im Inneren beeindrucken prunkvolle Räume, kunstvolle Deckenmalereien und kostbare Sammlungen von Kunst und Antiquitäten. Das Karlsruher Schloss ist nicht nur ein beeindruckendes architektonisches Highlight, sondern auch ein Fenster in die reiche Geschichte der Stadt, das Besucher aus aller Welt fasziniert.",
+            "image": "castle_karlsruhe.jpg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+        },
+        {
+            "id": 2,
+            "name": "Marktplatz",
+            "description": "Der Marktplatz ist der zentrale Platz in der Karlsruher Innenstadt. Er liegt an der Kreuzung der vom Schloss nach Süden ausgehenden zentralen Achse des fächerförmigen Stadtgrundrisses mit der Hauptgeschäftsstraße Kaiserstraße. Die beherrschenden Bauten des Platzes sind die Stadtkirche und ihr gegenüber das Rathaus, wie die gesamte Platzanlage klassizistische Entwürfe von Friedrich Weinbrenner. Auf dem Platz befindet sich die Karlsruher Pyramide. Sie ist das Wahrzeichen der Stadt und das Grabmal des Stadtgründers Markgraf Karl Wilhelm von Baden-Durlach.",
+            "image": "central_square.jpeg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+        },
+        {
+            "id": 3,
+            "name": "Schlossgarten",
+            "description": "Der auf der nördlichen Schlossseite, zum Hardtwald gelegene Schlossgarten wurde zwischen 1731 und 1746 durch Christian Thran im französischen Barockstil angelegt. Noch im 18. Jahrhundert ließ Großherzog Karl Friedrich Teile des Parks zum englischen Landschaftsgarten umbauen. Anlässlich der Bundesgartenschau 1967 erfolgte eine Erneuerung und Weiterentwicklung im gleichen Stil. Neben zahlreichen seltenen Baumarten finden sich hier Kunstwerke, Denkmäler und Brunnen aus den verschiedenen Epochen vom Barock bis zur Moderne.[9] Ein Band aus 1645 blauen Majolika-Fliesen führt seit 2001 vom Schlossturm zu der am Rand des Schlossparks gelegenen Majolika-Manufaktur. 1967 wurde anlässlich der Bundesgartenschau die Schlossgartenbahn Karlsruhe in Betrieb genommen. Am westlichen Rande des Schlossgartens befindet sich der Botanische Garten Karlsruhe. Zwischen dem botanischen Garten und dem Vorplatz des Schlosses ist das Bundesverfassungsgericht (Baumgarten-Bau) ansässig.",
+            "image": "castle_garden.jpeg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+        },  
+        {
+            "id": 4,
+            "name": "Bundesverfassungsgericht",
+            "description": "Das Bundesverfassungsgericht (BVerfG) ist in der Bundesrepublik Deutschland als Verfassungsgericht des Bundes sowohl ein unabhängiges Verfassungsorgan der Justiz, ranggleich mit den anderen obersten Bundesorganen, als auch der oberste Gerichtshof auf Bundesebene. Es hat damit eine Doppelstellung und -funktion. Einerseits obliegt dem Bundesverfassungsgericht die Kontrolle des verfassungsmäßig bestimmten politischen Lebens, das es am Maßstab des Grundgesetzes interpretiert, dies unter besonderer Berücksichtigung der individuellen Grundrechte des Bürgers.[6][7] Insoweit wurde dem Gericht, in seiner Eigenschaft als Hüter der deutschen Verfassung, die grundlegende Ordnungsbefugnis über die Verfassung im gesellschaftlichen Wandel zuteil.",
+            "image": "federal_constitutional_court.jpg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+        }
+      ]
+    },
+    {
+        "id": 2,
+        "title": "Foodspots",
+        "description": "Entdecke mit dieser Stadtführung die unvergleichliche Atmosphäre der Karlsruher Innenstadt! Schlender durch die gemütlichen Gassen und belebten Plätze, die unsere Stadt so besonders machen. Du kennst vielleicht schon die Grundzüge der Karlsruher Innenstadt, aber lass dich überraschen, was wir noch in petto haben. Von der majestätischen Karlsruher Schloss bis hin zu den versteckten Cafés, die nur Einheimische kennen – diese Tour zeigt dir die Ecken und Winkel, die du noch nicht entdeckt hast.",
+        "duration": "1-2 Stunden",
+        "image": "castle_karlsruhe.jpg",
+        "category": "Citylife",
+        "locations": [
+          {
+            "id": 1,
+            "name": "Karlsruher Schloss",
+            "description": "Das Karlsruher Schloss, ein architektonisches Meisterwerk im Herzen der Stadt, verkörpert die historische Pracht und den Charme Karlsruhes. Dieses imposante Barockschloss, einst die Residenz der Markgrafen von Baden, ist ein wahres Juwel der Geschichte. Mit seiner markanten Kuppel und den eleganten Fassaden strahlt das Schloss majestätische Schönheit aus. Umgeben von weitläufigen Gärten und malerischen Alleen, lädt das Schlossgelände zum Flanieren und Entspannen ein. Im Inneren beeindrucken prunkvolle Räume, kunstvolle Deckenmalereien und kostbare Sammlungen von Kunst und Antiquitäten. Das Karlsruher Schloss ist nicht nur ein beeindruckendes architektonisches Highlight, sondern auch ein Fenster in die reiche Geschichte der Stadt, das Besucher aus aller Welt fasziniert.",
+            "image": "castle_karlsruhe.jpg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          },
+          {
+            "id": 2,
+            "name": "Marktplatz",
+            "description": "Der Marktplatz ist der zentrale Platz in der Karlsruher Innenstadt. Er liegt an der Kreuzung der vom Schloss nach Süden ausgehenden zentralen Achse des fächerförmigen Stadtgrundrisses mit der Hauptgeschäftsstraße Kaiserstraße. Die beherrschenden Bauten des Platzes sind die Stadtkirche und ihr gegenüber das Rathaus, wie die gesamte Platzanlage klassizistische Entwürfe von Friedrich Weinbrenner. Auf dem Platz befindet sich die Karlsruher Pyramide. Sie ist das Wahrzeichen der Stadt und das Grabmal des Stadtgründers Markgraf Karl Wilhelm von Baden-Durlach.",
+            "image": "central_square.jpeg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          },
+          {
+            "id": 3,
+            "name": "Schlossgarten",
+            "description": "Der auf der nördlichen Schlossseite, zum Hardtwald gelegene Schlossgarten wurde zwischen 1731 und 1746 durch Christian Thran im französischen Barockstil angelegt. Noch im 18. Jahrhundert ließ Großherzog Karl Friedrich Teile des Parks zum englischen Landschaftsgarten umbauen. Anlässlich der Bundesgartenschau 1967 erfolgte eine Erneuerung und Weiterentwicklung im gleichen Stil. Neben zahlreichen seltenen Baumarten finden sich hier Kunstwerke, Denkmäler und Brunnen aus den verschiedenen Epochen vom Barock bis zur Moderne.[9] Ein Band aus 1645 blauen Majolika-Fliesen führt seit 2001 vom Schlossturm zu der am Rand des Schlossparks gelegenen Majolika-Manufaktur. 1967 wurde anlässlich der Bundesgartenschau die Schlossgartenbahn Karlsruhe in Betrieb genommen. Am westlichen Rande des Schlossgartens befindet sich der Botanische Garten Karlsruhe. Zwischen dem botanischen Garten und dem Vorplatz des Schlosses ist das Bundesverfassungsgericht (Baumgarten-Bau) ansässig.",
+            "image": "castle_garden.jpeg",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          }
+        ]
+      }
+  ]
