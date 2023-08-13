@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert' show jsonDecode;
+import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +9,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 
-
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
   await FlutterConfig.loadEnvVariables();
 
   runApp(MyApp());
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 219, 236, 255)),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Color.fromARGB(255, 219, 236, 255)),
         ),
         home: MapSample(),
       ),
@@ -40,6 +42,72 @@ class MapSample extends StatefulWidget {
 
   @override
   State<MapSample> createState() => MapSampleState();
+}
+
+Future<List<Widget>> readAndBuildCards() async {
+  final citytourJsonContent =
+      await readJson(); //lädt die JSON Datei um Karten mit Inhalt zu erzeugen
+  List<Widget> citytourList = []; // enthät die Karten der Touren
+
+  for (int i = 0; i < citytourJsonContent.length; i++) {
+    citytourList.add(
+      buildCardWidget(citytourJsonContent[i]),
+    );
+  }
+
+  return citytourList;
+}
+
+// Lädt Daten aus JSON
+Future<List<dynamic>> readJson() async {
+  final String response =
+      await rootBundle.loadString('assets/data/citytour.json');
+  final List<dynamic> data = jsonDecode(response);
+  return data;
+}
+
+Widget buildCardWidget(Map<String, dynamic> tourData) {
+  String imageFileName = tourData['image'];
+
+  return Container(
+    child: ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(10.0),
+        topRight: Radius.circular(10.0),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/images/$imageFileName',
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                tourData['title'],
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(height: 5),
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                tourData['description'],
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 class MapSampleState extends State<MapSample> {
@@ -56,7 +124,7 @@ class MapSampleState extends State<MapSample> {
     zoom: 16,
   );
 
-  static const CameraPosition _kLake = CameraPosition(
+  static const CameraPosition _castle = CameraPosition(
       bearing: 5,
       target: LatLng(49.01376089808605, 8.40441737052201),
       tilt: 60,
@@ -65,142 +133,67 @@ class MapSampleState extends State<MapSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack (
-        children: [
-          GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-            },
-            zoomControlsEnabled: false,
-            myLocationEnabled: true,
-          ),
-          Positioned(
-            bottom: 10, // Abstand zum unteren Rand
-            left: 10,   // Abstand zum linken Rand
-            right: 10,  // Abstand zum rechten Rand
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: PageView(
-                controller: _pageController,
-                children: [
-                  // Erste Seite (Google Maps Ansicht)
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/images/schloss.png'),
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
-                          child: Text(
-                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
-                            style: TextStyle(
-                              fontSize: 14.0, // Größe des Titels
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 5), // Kleiner Abstand
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
-                          child: Text(
-                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
-                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
-                          ),
-                        ),
-                      ],
+        body: Stack(
+          children: [
+            GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+              zoomControlsEnabled: false,
+              myLocationEnabled: true,
+            ),
+            Positioned(
+              bottom: 10, // Abstand zum unteren Rand
+              left: 10, // Abstand zum linken Rand
+              right: 10, // Abstand zum rechten Rand
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.5,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                      offset: Offset(0, 4),
                     ),
-                  ),
-                  // Zweite Seite (deine Karte mit Bild und Text)
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/images/schloss.png'),
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
-                          child: Text(
-                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
-                            style: TextStyle(
-                              fontSize: 14.0, // Größe des Titels
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 5), // Kleiner Abstand
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
-                          child: Text(
-                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
-                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Dritte Seite (deine Karte mit Bild und Text)
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/images/schloss.png'),
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding für den Titel hinzugefügt
-                          child: Text(
-                            'Karlsruhe Schloss und Parks', // Titel hinzugefügt
-                            style: TextStyle(
-                              fontSize: 14.0, // Größe des Titels
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 5), // Kleiner Abstand
-                        Padding(
-                          padding: EdgeInsets.only(left: 10), // Padding hinzugefügt
-                          child: Text(
-                            'et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea', // Text für die Karte
-                            style: TextStyle(fontSize: 14.0), // Schriftgröße angepasst
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
+                child: FutureBuilder<List<Widget>>(
+                  //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
+                  future: readAndBuildCards(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return CircularProgressIndicator(); // Loading indicator
+                    } else if (snapshot.hasError) {
+                      return Text('Error loading cards'); // Error message
+                    } else if (snapshot.hasData) {
+                      return PageView(
+                        controller: _pageController,
+                        children: snapshot.data!,
+                      ); // List of widgets
+                    } else {
+                      return Text('No data'); // Other states
+                    }
+                  },
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-      floatingActionButton: 
-         Column(
+          ],
+        ),
+        floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          
           children: [
             FloatingActionButton(
-              onPressed:  _goToCurrentLocation,
+              onPressed: _goToCurrentLocation,
               child: Icon(Icons.gps_not_fixed),
             ),
-
             SizedBox(
               height: 20,
             ),
-
             FloatingActionButton(
               onPressed: () {
                 _pageController.animateToPage(
@@ -208,24 +201,20 @@ class MapSampleState extends State<MapSample> {
                   duration: Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
+                _goToTheCastle(); //weg?
               },
               child: Icon(Icons.view_carousel_rounded),
             ),
-
             SizedBox(
               height: 20,
             ),
-          
-        ],
-        
-      )
-      
-    );
+          ],
+        ));
   }
 
   Future<void> _goToTheCastle() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    controller.animateCamera(CameraUpdate.newCameraPosition(_castle));
   }
 
   Future<void> _goToCurrentLocation() async {
@@ -235,17 +224,15 @@ class MapSampleState extends State<MapSample> {
       longOfUser = double.parse('${value.longitude}');
     });
 
-     CameraPosition posUser = CameraPosition(
-      bearing: 5,
-      target: LatLng(latOfUser, longOfUser),
-      zoom: 18);
+    CameraPosition posUser = CameraPosition(
+        bearing: 5, target: LatLng(latOfUser, longOfUser), zoom: 18);
 
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
   }
 
   Future<Position> _getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if(!serviceEnabled) {
+    if (!serviceEnabled) {
       return Future.error('Standortzugriff ist deaktiviert');
     }
 
@@ -258,15 +245,14 @@ class MapSampleState extends State<MapSample> {
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error("Dein Standortzugriff wurde abgelehnt, Standoertzugriff nicht möglich!");
+      return Future.error(
+          "Dein Standortzugriff wurde abgelehnt, Standoertzugriff nicht möglich!");
     }
 
     return await Geolocator.getCurrentPosition();
   }
-
 }
 // EXAMPLE ENDS --------------------------------------------------------------------------
-
 
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
@@ -287,11 +273,10 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Text('A random idea:'),
-          BigCard(pair: pair),    
-
+          BigCard(pair: pair),
           ElevatedButton(
             onPressed: () {
-              appState.getNext(); 
+              appState.getNext();
             },
             child: Text('Next'),
           ),
@@ -311,13 +296,12 @@ class BigCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);   
+    final theme = Theme.of(context);
     final style = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary,
     );
 
-    return Card
-    (
+    return Card(
       color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
