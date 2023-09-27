@@ -114,7 +114,7 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
 
-  bool isCardVisible = false;
+  bool isCardVisible = true;
 
   final PageController _pageController = PageController(initialPage: 0);
 
@@ -154,7 +154,7 @@ class MapSampleState extends State<MapSample> {
               child:
                   isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
                       ? Container(
-                          height: MediaQuery.of(context).size.height * 0.5,
+                          height: MediaQuery.of(context).size.height * 0.65,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
