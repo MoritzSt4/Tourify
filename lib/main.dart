@@ -114,6 +114,8 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
 
+  bool isCardVisible = false;
+
   final PageController _pageController = PageController(initialPage: 0);
 
   final Completer<GoogleMapController> _controller =
@@ -148,45 +150,65 @@ class MapSampleState extends State<MapSample> {
               bottom: 10, // Abstand zum unteren Rand
               left: 10, // Abstand zum linken Rand
               right: 10, // Abstand zum rechten Rand
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.5,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: FutureBuilder<List<Widget>>(
-                  //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
-                  future: readAndBuildCards(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return CircularProgressIndicator(); // Loading indicator
-                    } else if (snapshot.hasError) {
-                      return Text('Error loading cards'); // Error message
-                    } else if (snapshot.hasData) {
-                      return PageView(
-                        controller: _pageController,
-                        children: snapshot.data!,
-                      ); // List of widgets
-                    } else {
-                      return Text('No data'); // Other states
-                    }
-                  },
-                ),
-              ),
+
+              child:
+                  isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
+                      ? Container(
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                blurRadius: 10,
+                                spreadRadius: 2,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: FutureBuilder<List<Widget>>(
+                            //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
+                            future: readAndBuildCards(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return CircularProgressIndicator(); // Loading indicator
+                              } else if (snapshot.hasError) {
+                                return Text(
+                                    'Error loading cards'); // Error message
+                              } else if (snapshot.hasData) {
+                                return PageView(
+                                  controller: _pageController,
+                                  children: snapshot.data!,
+                                ); // List of widgets
+                              } else {
+                                return Text('No data'); // Other states
+                              }
+                            },
+                          ),
+                        )
+                      : SizedBox(),
             ),
           ],
         ),
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            FloatingActionButton(
+              onPressed: () {
+                _pageController.animateToPage(
+                  1, // Index der zweiten Seite (deine zusätzliche Karte)
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+                _goToTheCastle(); //weg?
+              },
+              child: Icon(Icons.play_arrow),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             FloatingActionButton(
               onPressed: _goToCurrentLocation,
               child: Icon(Icons.gps_not_fixed),
@@ -196,12 +218,7 @@ class MapSampleState extends State<MapSample> {
             ),
             FloatingActionButton(
               onPressed: () {
-                _pageController.animateToPage(
-                  1, // Index der zweiten Seite (deine zusätzliche Karte)
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-                _goToTheCastle(); //weg?
+                _handleIsCardVisible();
               },
               child: Icon(Icons.view_carousel_rounded),
             ),
@@ -215,6 +232,18 @@ class MapSampleState extends State<MapSample> {
   Future<void> _goToTheCastle() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_castle));
+  }
+
+  Future<void> _handleIsCardVisible() async {
+    if (isCardVisible) {
+      setState(() {
+        isCardVisible = false;
+      });
+    } else {
+      setState(() {
+        isCardVisible = true;
+      });
+    }
   }
 
   Future<void> _goToCurrentLocation() async {
