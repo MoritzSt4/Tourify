@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
+import 'package:flutter/physics.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
@@ -150,9 +151,10 @@ class MapSampleState extends State<MapSample> {
               bottom: 10, // Abstand zum unteren Rand
               left: 10, // Abstand zum linken Rand
               right: 10, // Abstand zum rechten Rand
-
+              child: GestureDetector(
+                onVerticalDragUpdate: _handleSwipeToClose,
               child:
-                  isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
+                isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
                       ? Container(
                           height: MediaQuery.of(context).size.height * 0.65,
                           decoration: BoxDecoration(
@@ -189,41 +191,42 @@ class MapSampleState extends State<MapSample> {
                           ),
                         )
                       : SizedBox(),
-            ),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 100), // Animationsdauer
-              bottom: isCardVisible ? 550 : 20,
-              left: 320,// Verstecke die Buttons, wenn isCardVisible false ist
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  FloatingActionButton(
-                    onPressed: () {
-                      _pageController.animateToPage(
-                        1,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                      _goToTheCastle();
-                    },
-                    child: Icon(Icons.play_arrow),
-                  ),
-                  SizedBox(height: 20),
-                  FloatingActionButton(
-                    onPressed: _goToCurrentLocation,
-                    child: Icon(Icons.gps_not_fixed),
-                  ),
-                  SizedBox(height: 20),
-                  FloatingActionButton(
-                    onPressed: () {
-                      _handleIsCardVisible();
-                    },
-                    child: Icon(Icons.view_carousel_rounded),
-                  ),
-                  SizedBox(height: 20),
-                ],
               ),
             ),
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 300), // Animationsdauer
+              bottom: isCardVisible ? 550 : 20,
+              left: 320,// Verstecke die Buttons, wenn isCardVisible false ist
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        _pageController.animateToPage(
+                          1,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                        _goToTheCastle();
+                      },
+                      child: Icon(Icons.play_arrow),
+                    ),
+                    SizedBox(height: 20),
+                    FloatingActionButton(
+                      onPressed: _goToCurrentLocation,
+                      child: Icon(Icons.gps_not_fixed),
+                    ),
+                    SizedBox(height: 20),
+                    FloatingActionButton(
+                      onPressed: () {
+                        _handleIsCardVisible();
+                      },
+                      child: Icon(Icons.view_carousel_rounded),
+                    ),
+                    SizedBox(height: 20),
+                  ],
+                ),
+              ),
           ],
         ),
     );
@@ -259,6 +262,14 @@ class MapSampleState extends State<MapSample> {
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
   }
 
+  void _handleSwipeToClose(DragUpdateDetails details) {
+    if (details.primaryDelta! > 0) {
+      // Swipe nach unten
+      setState(() {
+        isCardVisible = false;
+      });; // Karten ausblenden
+    }
+  }
   Future<Position> _getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
