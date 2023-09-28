@@ -104,6 +104,25 @@ Widget buildCardWidget(Map<String, dynamic> tourData) {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(
+                        width: 2,
+                        color: Colors.green
+                    ),
+                  ),
+                  onPressed: () { },
+                  child: Text(
+                      'DetailAnsicht',
+                      style: TextStyle(fontSize: 14.0, color: Colors.green)
+                  ),
+                ),
+              ],
+
+            )
           ],
         ),
       ),
