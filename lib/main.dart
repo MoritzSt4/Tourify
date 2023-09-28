@@ -190,43 +190,43 @@ class MapSampleState extends State<MapSample> {
                         )
                       : SizedBox(),
             ),
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 100), // Animationsdauer
+              bottom: isCardVisible ? 550 : 20,
+              left: 320,// Verstecke die Buttons, wenn isCardVisible false ist
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FloatingActionButton(
+                    onPressed: () {
+                      _pageController.animateToPage(
+                        1,
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                      _goToTheCastle();
+                    },
+                    child: Icon(Icons.play_arrow),
+                  ),
+                  SizedBox(height: 20),
+                  FloatingActionButton(
+                    onPressed: _goToCurrentLocation,
+                    child: Icon(Icons.gps_not_fixed),
+                  ),
+                  SizedBox(height: 20),
+                  FloatingActionButton(
+                    onPressed: () {
+                      _handleIsCardVisible();
+                    },
+                    child: Icon(Icons.view_carousel_rounded),
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ),
+            ),
           ],
         ),
-        floatingActionButton: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                _pageController.animateToPage(
-                  1, // Index der zweiten Seite (deine zusätzliche Karte)
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-                _goToTheCastle(); //weg?
-              },
-              child: Icon(Icons.play_arrow),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FloatingActionButton(
-              onPressed: _goToCurrentLocation,
-              child: Icon(Icons.gps_not_fixed),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FloatingActionButton(
-              onPressed: () {
-                _handleIsCardVisible();
-              },
-              child: Icon(Icons.view_carousel_rounded),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        ));
+    );
   }
 
   Future<void> _goToTheCastle() async {
