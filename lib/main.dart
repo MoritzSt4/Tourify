@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert' show jsonDecode;
 import 'package:flutter/services.dart' show rootBundle;
-
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
@@ -13,13 +12,11 @@ import 'package:geolocator/geolocator.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
   await FlutterConfig.loadEnvVariables();
-
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -40,7 +37,6 @@ class MyApp extends StatelessWidget {
 // EXAMPLE --------------------------------------------------------------------------
 class MapSample extends StatefulWidget {
   const MapSample({super.key});
-
   @override
   State<MapSample> createState() => MapSampleState();
 }
@@ -49,13 +45,11 @@ Future<List<Widget>> readAndBuildCards() async {
   final citytourJsonContent =
       await readJson(); //lädt die JSON Datei um Karten mit Inhalt zu erzeugen
   List<Widget> citytourList = []; // enthät die Karten der Touren
-
   for (int i = 0; i < citytourJsonContent.length; i++) {
     citytourList.add(
       buildCardWidget(citytourJsonContent[i]),
     );
   }
-
   return citytourList;
 }
 
@@ -70,60 +64,59 @@ Future<List<dynamic>> readJson() async {
 Widget buildCardWidget(Map<String, dynamic> tourData) {
   String imageFileName = tourData['image'];
 
-  return Container(
-    child: ClipRRect(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(10.0),
-        topRight: Radius.circular(10.0),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/images/$imageFileName',
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Text(
-                tourData['title'],
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold,
+  return GestureDetector(
+    onTap: () {
+      print(tourData['id']);
+    },
+    child: Container(
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                'assets/images/$imageFileName',
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  tourData['title'],
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 5),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Text(
-                tourData['description'],
-                style: TextStyle(
-                  fontSize: 14.0,
+              SizedBox(height: 5),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  tourData['description'],
+                  style: TextStyle(
+                    fontSize: 14.0,
+                  ),
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(
-                        width: 2,
-                        color: Colors.green
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(width: 2, color: Colors.green),
                     ),
+                    onPressed: () {},
+                    child: Text('DetailAnsicht',
+                        style: TextStyle(fontSize: 14.0, color: Colors.green)),
                   ),
-                  onPressed: () { },
-                  child: Text(
-                      'DetailAnsicht',
-                      style: TextStyle(fontSize: 14.0, color: Colors.green)
-                  ),
-                ),
-              ],
-
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     ),
@@ -133,47 +126,41 @@ Widget buildCardWidget(Map<String, dynamic> tourData) {
 class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
-
   bool isCardVisible = true;
-
   final PageController _pageController = PageController(initialPage: 0);
-
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
-
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(49.015029983797106, 8.390162377008094),
     zoom: 16,
   );
-
   static const CameraPosition _castle = CameraPosition(
       bearing: 5,
       target: LatLng(49.01376089808605, 8.40441737052201),
       tilt: 60,
       zoom: 18);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-          children: [
-            GoogleMap(
-              mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-              zoomControlsEnabled: false,
-              myLocationEnabled: true,
-            ),
-            Positioned(
-              bottom: 10, // Abstand zum unteren Rand
-              left: 10, // Abstand zum linken Rand
-              right: 10, // Abstand zum rechten Rand
-              child: GestureDetector(
-                onVerticalDragUpdate: _handleSwipeToClose,
+      body: Stack(
+        children: [
+          GoogleMap(
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+            zoomControlsEnabled: false,
+            myLocationEnabled: true,
+          ),
+          Positioned(
+            bottom: 10, // Abstand zum unteren Rand
+            left: 10, // Abstand zum linken Rand
+            right: 10, // Abstand zum rechten Rand
+            child: GestureDetector(
+              onVerticalDragUpdate: _handleSwipeToClose,
               child:
-                isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
+                  isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
                       ? Container(
                           height: MediaQuery.of(context).size.height * 0.65,
                           decoration: BoxDecoration(
@@ -210,44 +197,44 @@ class MapSampleState extends State<MapSample> {
                           ),
                         )
                       : SizedBox(),
-              ),
             ),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 300), // Animationsdauer
-              bottom: isCardVisible ? 550 : 20,
-              left: 320,// Verstecke die Buttons, wenn isCardVisible false ist
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FloatingActionButton(
-                      onPressed: () {
-                        _pageController.animateToPage(
-                          1,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                        _goToTheCastle();
-                      },
-                      child: Icon(Icons.play_arrow),
-                    ),
-                    SizedBox(height: 20),
-                    FloatingActionButton(
-                      onPressed: _goToCurrentLocation,
-                      child: Icon(Icons.gps_not_fixed),
-                    ),
-                    SizedBox(height: 20),
-                    FloatingActionButton(
-                      onPressed: () {
-                        _handleIsCardVisible();
-                      },
-                      child: Icon(Icons.view_carousel_rounded),
-                    ),
-                    SizedBox(height: 20),
-                  ],
+          ),
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 300), // Animationsdauer
+            bottom: isCardVisible ? 550 : 20,
+            left: 320, // Verstecke die Buttons, wenn isCardVisible false ist
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FloatingActionButton(
+                  onPressed: () {
+                    _pageController.animateToPage(
+                      1,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                    _goToTheCastle();
+                  },
+                  child: Icon(Icons.play_arrow),
                 ),
-              ),
-          ],
-        ),
+                SizedBox(height: 20),
+                FloatingActionButton(
+                  onPressed: _goToCurrentLocation,
+                  child: Icon(Icons.gps_not_fixed),
+                ),
+                SizedBox(height: 20),
+                FloatingActionButton(
+                  onPressed: () {
+                    _handleIsCardVisible();
+                  },
+                  child: Icon(Icons.view_carousel_rounded),
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -274,10 +261,8 @@ class MapSampleState extends State<MapSample> {
       latOfUser = double.parse('${value.latitude}');
       longOfUser = double.parse('${value.longitude}');
     });
-
     CameraPosition posUser = CameraPosition(
         bearing: 5, target: LatLng(latOfUser, longOfUser), zoom: 18);
-
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
   }
 
@@ -286,15 +271,16 @@ class MapSampleState extends State<MapSample> {
       // Swipe nach unten
       setState(() {
         isCardVisible = false;
-      });; // Karten ausblenden
+      });
+      ; // Karten ausblenden
     }
   }
+
   Future<Position> _getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Standortzugriff ist deaktiviert');
     }
-
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -302,20 +288,17 @@ class MapSampleState extends State<MapSample> {
         return Future.error('Standortzugriff wurde nicht erlaubt');
       }
     }
-
     if (permission == LocationPermission.deniedForever) {
       return Future.error(
           "Dein Standortzugriff wurde abgelehnt, Standoertzugriff nicht möglich!");
     }
-
     return await Geolocator.getCurrentPosition();
   }
 }
-// EXAMPLE ENDS --------------------------------------------------------------------------
 
+// EXAMPLE ENDS --------------------------------------------------------------------------
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
-
   void getNext() {
     current = WordPair.random();
     notifyListeners();
@@ -327,7 +310,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
-
     return Scaffold(
       body: Column(
         children: [
@@ -350,16 +332,13 @@ class BigCard extends StatelessWidget {
     super.key,
     required this.pair,
   });
-
   final WordPair pair;
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final style = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary,
     );
-
     return Card(
       color: theme.colorScheme.primary,
       child: Padding(
