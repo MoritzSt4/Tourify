@@ -97,9 +97,9 @@ class MapSampleState extends State<MapSample> {
             },
           ),
           Positioned(
-            bottom: 10, // Abstand zum unteren Rand
-            left: 10, // Abstand zum linken Rand
-            right: 10, // Abstand zum rechten Rand
+            bottom: 0, // Abstand zum unteren Rand
+            left: 0, // Abstand zum linken Rand
+            right: 0, // Abstand zum rechten Rand
             child: GestureDetector(
               onVerticalDragUpdate: _handleSwipeToClose,
               child:
@@ -109,6 +109,7 @@ class MapSampleState extends State<MapSample> {
                     .of(context)
                     .size
                     .height * 0.65,
+                margin: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -148,7 +149,7 @@ class MapSampleState extends State<MapSample> {
           AnimatedPositioned(
             duration: Duration(milliseconds: 300), // Animationsdauer
             bottom: isCardVisible ? 550 : 20,
-            left: 320, // Verstecke die Buttons, wenn isCardVisible false ist
+            left: 320,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

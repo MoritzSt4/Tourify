@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_project/views/detailPage.dart';
 
 //WidgedBuilder
 Widget buildCardWidget(Map<String, dynamic> tourData, BuildContext context) {
@@ -103,38 +104,6 @@ class BigCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Text(pair.asLowerCase, style: style),
-      ),
-    );
-  }
-}
-
-//VIEWS
-
-class DetailView extends StatelessWidget {
-  final Map<String, dynamic> tourData;
-
-  DetailView({required this.tourData});
-
-  @override
-  Widget build(BuildContext context) {
-    // Hier kannst du die Detailansicht erstellen, basierend auf den tourData-Informationen
-    // Zeige alle relevanten Informationen an
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Detailansicht'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            // Zeige die Details an, z.B. tourData['title'], tourData['description'], usw.
-          ],
-        ),
       ),
     );
   }
