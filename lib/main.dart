@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert' show jsonDecode;
+import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,9 @@ import 'package:flutter/physics.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:test_project/directions_repository.dart';
+
+import 'directions_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
@@ -22,7 +26,8 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'Tourify',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
@@ -127,6 +132,8 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
   bool isCardVisible = true;
+  Directions? _info = null;
+
   final PageController _pageController = PageController(initialPage: 0);
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
@@ -152,6 +159,24 @@ class MapSampleState extends State<MapSample> {
             },
             zoomControlsEnabled: false,
             myLocationEnabled: true,
+            markers: {
+              const Marker(
+                  markerId: MarkerId("Sonnenbad"),
+                  position: LatLng(49.013406, 8.346916),
+                  infoWindow:
+                      InfoWindow(title: 'tour[x][name] (Sonnenbad)')), // Marker
+            },
+            polylines: {
+              if (_info != null)
+                Polyline(
+                  polylineId: const PolylineId('overview_polyline'),
+                  color: Colors.red,
+                  width: 5,
+                  points: _info!.polylinePoints // non-null assertion
+                      .map((e) => LatLng(e.latitude, e.longitude))
+                      .toList(),
+                ),
+            },
           ),
           Positioned(
             bottom: 10, // Abstand zum unteren Rand
@@ -207,6 +232,11 @@ class MapSampleState extends State<MapSample> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FloatingActionButton(
+                  onPressed: _handleNavigate,
+                  child: Icon(Icons.directions),
+                ),
+                SizedBox(height: 20),
+                FloatingActionButton(
                   onPressed: () {
                     _pageController.animateToPage(
                       1,
@@ -229,7 +259,7 @@ class MapSampleState extends State<MapSample> {
                   },
                   child: Icon(Icons.view_carousel_rounded),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 50),
               ],
             ),
           ),
@@ -264,6 +294,16 @@ class MapSampleState extends State<MapSample> {
     CameraPosition posUser = CameraPosition(
         bearing: 5, target: LatLng(latOfUser, longOfUser), zoom: 18);
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
+  }
+
+  Future<void> _handleNavigate() async {
+    final directions = await DirectionsRepository(dio: Dio()).getDirections(
+        origin: LatLng(49.01376089808605, 8.40441737052201),
+        destination: LatLng(49.013406, 8.346916));
+    print(_info);
+    setState(() => _info = directions);
+    print("navigation gestartet");
+    print(_info);
   }
 
   void _handleSwipeToClose(DragUpdateDetails details) {
