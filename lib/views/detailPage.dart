@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'activePage.dart';
+
 class DetailView extends StatefulWidget {
   final Map<String, dynamic> tourData;
 
@@ -60,42 +62,51 @@ class _DetailView extends State<DetailView> {
                 .of(context)
                 .size
                 .height * 0.5,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                    offset: Offset(0, 4),
+            child: GestureDetector (
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ActiveTourView(),
                   ),
-                ],
-              ),
-              margin: EdgeInsets.all(16.0),
-              padding: EdgeInsets.all(16.0),
-              child:
+                );
+              },
+               child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                margin: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
+                child:
                 Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.tourData['title'],
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.tourData['title'],
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    widget.tourData['description'],
-                    style: TextStyle(
-                      fontSize: 14.0,
+                    SizedBox(height: 10),
+                    Text(
+                      widget.tourData['description'],
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            )
           ),
         ],
       ),
