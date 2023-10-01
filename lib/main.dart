@@ -46,32 +46,16 @@ class MapSample extends StatefulWidget {
   State<MapSample> createState() => MapSampleState();
 }
 
-Future<List<Widget>> readAndBuildCards() async {
-  final citytourJsonContent =
-      await readJson(); //lädt die JSON Datei um Karten mit Inhalt zu erzeugen
-  List<Widget> citytourList = []; // enthät die Karten der Touren
-  for (int i = 0; i < citytourJsonContent.length; i++) {
-    citytourList.add(
-      buildCardWidget(citytourJsonContent[i]),
-    );
-  }
-  return citytourList;
-}
-
-// Lädt Daten aus JSON
-Future<List<dynamic>> readJson() async {
-  final String response =
-      await rootBundle.loadString('assets/data/citytour.json');
-  final List<dynamic> data = jsonDecode(response);
-  return data;
-}
-
-Widget buildCardWidget(Map<String, dynamic> tourData) {
+Widget buildCardWidget(Map<String, dynamic> tourData, BuildContext context) {
   String imageFileName = tourData['image'];
 
   return GestureDetector(
     onTap: () {
-      print(tourData['id']);
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => DetailView(tourData: tourData),
+        ),
+      );
     },
     child: Container(
       child: ClipRRect(
@@ -107,19 +91,6 @@ Widget buildCardWidget(Map<String, dynamic> tourData) {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(width: 2, color: Colors.green),
-                    ),
-                    onPressed: () {},
-                    child: Text('DetailAnsicht',
-                        style: TextStyle(fontSize: 14.0, color: Colors.green)),
-                  ),
-                ],
-              )
             ],
           ),
         ),
@@ -202,7 +173,7 @@ class MapSampleState extends State<MapSample> {
                           ),
                           child: FutureBuilder<List<Widget>>(
                             //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
-                            future: readAndBuildCards(),
+                            future: readAndBuildCards(context),
                             builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {
@@ -266,6 +237,26 @@ class MapSampleState extends State<MapSample> {
         ],
       ),
     );
+  }
+
+  // Lädt Daten aus JSON
+  Future<List<dynamic>> readJson() async {
+    final String response =
+    await rootBundle.loadString('assets/data/citytour.json');
+    final List<dynamic> data = jsonDecode(response);
+    return data;
+  }
+
+  Future<List<Widget>> readAndBuildCards(BuildContext context) async {
+    final citytourJsonContent =
+    await readJson(); //lädt die JSON Datei um Karten mit Inhalt zu erzeugen
+    List<Widget> citytourList = []; // enthät die Karten der Touren
+    for (int i = 0; i < citytourJsonContent.length; i++) {
+      citytourList.add(
+        buildCardWidget(citytourJsonContent[i], context),
+      );
+    }
+    return citytourList;
   }
 
   Future<void> _goToTheCastle() async {
@@ -337,6 +328,36 @@ class MapSampleState extends State<MapSample> {
 }
 
 // EXAMPLE ENDS --------------------------------------------------------------------------
+class DetailView extends StatelessWidget {
+  final Map<String, dynamic> tourData;
+
+  DetailView({required this.tourData});
+
+  @override
+  Widget build(BuildContext context) {
+    // Hier kannst du die Detailansicht erstellen, basierend auf den tourData-Informationen
+    // Zeige alle relevanten Informationen an
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detailansicht'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            // Zeige die Details an, z.B. tourData['title'], tourData['description'], usw.
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
   void getNext() {
