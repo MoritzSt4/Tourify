@@ -2,7 +2,8 @@
     {
       "id": 1,
       "title": "Karlsruhe Innenstadt",
-      "description": "Entdecke mit dieser Stadtführung die unvergleichliche Atmosphäre der Karlsruher Innenstadt! Schlender durch die gemütlichen Gassen und belebten Plätze, die unsere Stadt so besonders machen. Du kennst vielleicht schon die Grundzüge der Karlsruher Innenstadt, aber lass dich überraschen, was wir noch in petto haben. Von der majestätischen Karlsruher Schloss bis hin zu den versteckten Cafés, die nur Einheimische kennen – diese Tour zeigt dir die Ecken und Winkel, die du noch nicht entdeckt hast.",
+      "description": "Entdecke mit dieser Stadtführung die unvergleichliche Atmosphäre der Karlsruher Innenstadt! Schlender durch die gemütlichen Gassen und belebten Plätze, die unsere Stadt so besonders machen. Von der majestätischen Karlsruher Schloss bis hin zu den versteckten Cafés, die nur Einheimische kennen – diese Tour zeigt dir die Ecken und Winkel, die du noch nicht entdeckt hast.",
+      "detailDescription": "Beginne auf dem historischen Marktplatz, wo die Stadt zum Leben erwacht. Erfahre Wissenswertes über die Geschichte dieses zentralen Ortes.\n\nBewundere das majestätische Schloss und seine Gärten, während du seine königliche Vergangenheit erkundest.\n\nTauche ein in die grüne Oase des Schlossgartens, erfahre über seine historische Bedeutung und genieße die Natur.\n\nErfahre mehr über die deutsche Verfassung und die Rolle des Bundesverfassungsgerichts in einem beeindruckenden Gerichtsgebäude.\n\nBeende deine Tour in einer versteckten Teabar, wo du exzellente Teesorten und probieren kannst – ein Geheimtipp der Einheimischen.",
       "duration": "2-4 Stunden",
       "image": "castle_karlsruhe.png",
       "category": "City life",
@@ -38,38 +39,71 @@
             "image": "federal_constitutional_court.png",
             "latitude": 49.01376089808605,
             "longitude": 8.40441737052201
+        },
+        {
+          "id": 5,
+          "name": "HELLERSTEA°BAR",
+          "description": "Genieße im HELLERSTEA°BAR erstklassigen, biologisch angebauten Tee, der mit viel Liebe und Hingabe ausgewählt wird. Mit einer großen Sonnenterasse und stimmungsvollem Interior geniesßt du deinen Tee in entspannter und exklusiver Atmosphäre.",
+          "image": "castle_cafe.png",
+          "latitude": 49.01376089808605,
+          "longitude": 8.40441737052201
         }
       ]
     },
     {
-        "id": 2,
-        "title": "Foodspots",
-        "description": "Entdecke die kulinarische Vielfalt von Karlsruhe bei unserer Foodspots-Stadtführung! Wir nehmen dich mit zu den besten Essensplätzen der Stadt. Probiere traditionelle Leckerbissen, internationale Köstlichkeiten und süße Versuchungen. Lass dich durch die Geschichte der Gerichte führen und erlebe Karlsruhe auf eine köstliche neue Weise!",
-        "duration": "1-2 Stunden",
-        "image": "foodspots.png",
-        "category": "Citylife",
-        "locations": [
+      "id": 2,
+      "title": "Foodspots",
+      "description": "Entdecke die kulinarische Vielfalt von Karlsruhe bei unserer Foodspots-Stadtführung! Wir nehmen dich mit zu den besten Essensplätzen der Stadt. Probiere traditionelle Leckerbissen, internationale Köstlichkeiten und süße Versuchungen. Lass dich durch die Geschichte der Gerichte führen und erlebe Karlsruhe auf eine köstliche neue Weise!",
+      "detailDescription":"Entdecke Karlsruhe auf einer kulinarischen Reise durch einige der besten Foodspots der Stadt:\n\nDeliburger - Regionale Frische:\nDeliburger serviert erstklassige Burger mit regionalen Zutaten in gemütlichem Ambiente und ist ein idealer Ausgangspunkt für einen Besuch im Schlosspark.\n\nLehner's Wirtshaus - Deutsche Gastfreundschaft:\nLehner's Wirtshaus bietet herzhafte deutsche Gerichte in uriger Atmosphäre und eine Auswahl an deutschen Bieren.\n\nKebabi - Beliebter Geheimtipp:\nKebabi ist bekannt für köstliche Kebabs und türkische Spezialitäten und zieht oft viele Gäste an, daher empfiehlt es sich, früh zu kommen.\n\nMogogo - Exotische Aromen:\nBei Mogogo erwarten dich äthiopische Köstlichkeiten, serviert auf traditionellem Injera-Brot, in einer einladenden Atmosphäre.\n\nMin Ramen Bar - Japanische Köstlichkeiten:\nDie Min Ramen Bar ist ein Paradies für Liebhaber japanischer Küche, mit köstlichen Ramen-Nudelsuppen und authentischen Geschmacksrichtungen.\n\nEiscafé Casal - Süße Versuchung:\n Im Eiscafé Casal kannst du himmlisches Eis und Desserts genießen, begleitet von einer gemütlichen Café-Atmosphäre.",
+      "duration": "3-5 Stunden",
+      "image": "foodspots.png",
+      "category": "Citylife",
+      "locations": [
           {
             "id": 1,
-            "name": "Karlsruher Schloss",
-            "description": "Das Karlsruher Schloss, ein architektonisches Meisterwerk im Herzen der Stadt, verkörpert die historische Pracht und den Charme Karlsruhes. Dieses imposante Barockschloss, einst die Residenz der Markgrafen von Baden, ist ein wahres Juwel der Geschichte. Mit seiner markanten Kuppel und den eleganten Fassaden strahlt das Schloss majestätische Schönheit aus. Umgeben von weitläufigen Gärten und malerischen Alleen, lädt das Schlossgelände zum Flanieren und Entspannen ein. Im Inneren beeindrucken prunkvolle Räume, kunstvolle Deckenmalereien und kostbare Sammlungen von Kunst und Antiquitäten. Das Karlsruher Schloss ist nicht nur ein beeindruckendes architektonisches Highlight, sondern auch ein Fenster in die reiche Geschichte der Stadt, das Besucher aus aller Welt fasziniert.",
-            "image": "castle_karlsruhe.png",
+            "name": "DeliBurgers",
+            "description": "Willkommen bei Deliburger, dem Ort, an dem Qualität und Regionalität im Mittelpunkt stehen. Hier werden alle Zutaten sorgfältig aus der Region bezogen, um sicherzustellen, dass deine Burger mit frischen und hochwertigen Produkten zubereitet werden. Genieße den unverwechselbaren Geschmack der Heimat, während du in gemütlicher Atmosphäre speist. Und das Beste daran? Vom kleinen Innenbereich aus bist du nur einen kurzen Spaziergang vom Schlosspark entfernt, wo du dein Essen in entspannter Naturkulisse genießen kannst.",
+            "image": "foodspots_deli.png",
             "latitude": 49.01376089808605,
             "longitude": 8.40441737052201
           },
           {
             "id": 2,
-            "name": "Marktplatz",
-            "description": "Der Marktplatz ist der zentrale Platz in der Karlsruher Innenstadt. Er liegt an der Kreuzung der vom Schloss nach Süden ausgehenden zentralen Achse des fächerförmigen Stadtgrundrisses mit der Hauptgeschäftsstraße Kaiserstraße. Die beherrschenden Bauten des Platzes sind die Stadtkirche und ihr gegenüber das Rathaus, wie die gesamte Platzanlage klassizistische Entwürfe von Friedrich Weinbrenner. Auf dem Platz befindet sich die Karlsruher Pyramide. Sie ist das Wahrzeichen der Stadt und das Grabmal des Stadtgründers Markgraf Karl Wilhelm von Baden-Durlach.",
-            "image": "central_square.png",
+            "name": "Lehner's Wirtshaus",
+            "description": "Lehner's Wirtshaus ist der Inbegriff der deutschen Gastfreundschaft und Tradition. Hier erwarten dich herzhafte deutsche Gerichte, von Schnitzel bis Sauerkraut. Die urige Atmosphäre und die Auswahl an deutschen Bieren machen dieses Wirtshaus zu einem perfekten Ort, um die lokale Küche zu genießen und sich wohlzufühlen.",
+            "image": "foodspots_lehners.png",
             "latitude": 49.01376089808605,
             "longitude": 8.40441737052201
           },
           {
             "id": 3,
-            "name": "Schlossgarten",
-            "description": "Der auf der nördlichen Schlossseite, zum Hardtwald gelegene Schlossgarten wurde zwischen 1731 und 1746 durch Christian Thran im französischen Barockstil angelegt. Noch im 18. Jahrhundert ließ Großherzog Karl Friedrich Teile des Parks zum englischen Landschaftsgarten umbauen. Anlässlich der Bundesgartenschau 1967 erfolgte eine Erneuerung und Weiterentwicklung im gleichen Stil. Neben zahlreichen seltenen Baumarten finden sich hier Kunstwerke, Denkmäler und Brunnen aus den verschiedenen Epochen vom Barock bis zur Moderne.[9] Ein Band aus 1645 blauen Majolika-Fliesen führt seit 2001 vom Schlossturm zu der am Rand des Schlossparks gelegenen Majolika-Manufaktur. 1967 wurde anlässlich der Bundesgartenschau die Schlossgartenbahn Karlsruhe in Betrieb genommen. Am westlichen Rande des Schlossgartens befindet sich der Botanische Garten Karlsruhe. Zwischen dem botanischen Garten und dem Vorplatz des Schlosses ist das Bundesverfassungsgericht (Baumgarten-Bau) ansässig.",
-            "image": "castle_garden.png",
+            "name": "Kebabi",
+            "description": "Kebabi ist zweifellos ein beliebter kulinarischer Geheimtipp in Karlsruhe. Die saftigen Kebabs und authentischen türkischen Spezialitäten haben eine treue Fangemeinde gewonnen. Wenn du hier essen möchtest, empfehlen wir dir, frühzeitig zu kommen, um lange Warteschlangen zu vermeiden. Der kleine Innenbereich bietet zwar begrenzten Platz, aber der Geschmack der Gerichte ist es absolut wert. Und nach dem Essen bist du nur einen Katzensprung vom Schlosspark entfernt, wo du deinen Gaumen und die grüne Umgebung in vollen Zügen genießen kannst.",
+            "image": "foodspots_kebabi.png",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          },
+          {
+            "id": 4,
+            "name": "Mogogo",
+            "description": "Mogogo ist der Ort, an dem exotische Aromen und orientalische Köstlichkeiten aufeinandertreffen. Genieße authentische äthiopische Küche, serviert auf traditionellen Injera-Brot, das eine einzigartige Geschmacksexplosion bietet. Die warme und einladende Atmosphäre bei Mogogo sorgt dafür, dass du dich wie in Äthiopien fühlst, während du deine Mahlzeit genießt.",
+            "image": "foodspots_mogogo.png",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          },
+          {
+            "id": 5,
+            "name": "Min Ramen Bar",
+            "description": "Die Min Ramen Bar ist ein Paradies für Liebhaber japanischer Küche. Hier kannst du köstliche Ramen-Nudelsuppen in verschiedenen Variationen probieren, die mit frischen Zutaten und hausgemachten Brühen zubereitet werden. Die minimalistische Einrichtung und die authentischen Geschmacksrichtungen machen diesen Ort zu einem Muss für Ramen-Fans.",
+            "image": "foodspots_min.png",
+            "latitude": 49.01376089808605,
+            "longitude": 8.40441737052201
+          },
+          {
+            "id": 6,
+            "name": " Eiscafé Casal",
+            "description": "Verwöhne deinen Gaumen mit himmlischem Eis und leckeren Desserts im Eiscafé Casal. Hier findest du eine breite Palette an Eissorten, von traditionellen Klassikern bis zu kreativen Neukreationen. Die gemütliche Café-Atmosphäre und das freundliche Personal machen dieses Eiscafé zu einem perfekten Ort für eine süße Pause in Karlsruhe.",
+            "image": "foodspots_casal.png",
             "latitude": 49.01376089808605,
             "longitude": 8.40441737052201
           }
@@ -79,15 +113,64 @@
         "id": 3,
         "title": "Nationalsozialismus in Karlsruhe - Auf den Spuren der Verfolgten",
         "description": "Mit dieser Stadtführung erhälst du bewegende Einblicke in die Geschichte unserer Stadt, genauer gesagt in die Zeit des Nationalsozialismus in Karlsruhe. Weitere Informationen erhälst du hier: https://ns-in-ka.de/",
-        "duration": "1-2 Stunden",
+        "detailDescription": "Mit dieser Stadtführung erhältst du bewegende Einblicke in die Geschichte unserer Stadt, genauer gesagt in die Zeit des Nationalsozialismus in Karlsruhe.\n\nDie Synagoge in der Kronenstraße gibt Einblicke in die Geschichte der jüdischen Gemeinde in Karlsruhe während des Nationalsozialismus.\n\nDie Markgrafenstraße beherbergt die Jüdische Schule, wo wir die Bedeutung von Bildung und kulturellem Erbe während dieser Zeit erkunden.\n\nAm Marktplatz werden wir die Rolle der örtlichen Polizei während des Nationalsozialismus diskutieren.\n\nDer Führer-Verlag eröffnet Einblicke in Propaganda und die Verbreitung von Ideologien in dieser Zeit.\n\nDer Schlossplatz erinnert uns an die düstere Bücherverbrennung und die Unterdrückung von Kultur und Meinungsaustausch.\n\nDas Kaufhaus Karstadt reflektiert die Veränderungen im Einzelhandel während dieser Zeit.\n\nDas Badische Innenministerium bietet Einblicke in die Verwaltungsaspekte der nationalsozialistischen Ära in Karlsruhe.",
+        "duration": "2-3 Stunden",
         "image": "ns_in_ka.png",
         "category": "History",
         "locations": [
           {
             "id": 1,
+            "name": "Synagoge Kronenstraße",
+            "description": "",
+            "image": "synagoge.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 2,
+            "name": "Jüdische Schule, Markgrafenstraße",
+            "description": "",
+            "image": "schule.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 3,
+            "name": "Polizeipräsidium Marktplatz",
+            "description": "",
+            "image": "polizei.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 4,
+            "name": "Führer-Verlag",
+            "description": "",
+            "image": "verlag.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 5,
+            "name": "Schlossplatz – Bücherverbrennung",
+            "description": "",
+            "image": "verbrennung.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 6,
             "name": "Kaufhaus Karstadt",
             "description": "An der Stelle des heutigen Kaufhauses Karstadt befand sich das Kaufhaus der Geschwister Knopf. Das Kaufhaus, das eines der ältesten jüdischen Kaufhäuser der Stadt war, wurde 1881 von den Geschwistern Max und Johanna Knopf gegründet und wuchs mit Unterstützung weiterer Familienmitglieder zu einem großen Kaufhausimperium, das sich vor dem I. Weltkrieg über 60-80 Filialen in ganz Deutschland und der Schweiz erstreckte. Das Zentrum und Herzstück dieser beeindruckenden Dynastie lag in der Karlsruher Kaiserstraße. Das prächtige Gebäude im neoklassizistischen Stil umfasste eine Fläche von etwa 3000qm² und erstreckte sich über fünf Stockwerke. Im Jahre 1931 hatte sich das Kaufhaus Knopf mit mehr als 500 Angestellten bereits zum größten Warenhaus Badens entwickelt und war zu einer Marke geworden, mit der man sich in Karlsruhe identifizierte. Mit der Machtübernahme Hitlers veränderte sich die Geschichte des Traditionskaufhauses schlagartig. Die Alleinerbin Margarete Levis (geb. Knopf)  wurde im Zuge der Arisierung zum Verkauf all ihrer Kaufhäuser gezwungen – Die Filiale in Karlsruhe musste sie schließlich am 29.07.1939 an die Friedrich Hölscher AG verkaufen. Für die jüdischen Beschäftigten führte dies zur Kündigung und meist in die Arbeitslosigkeit. „Dem jüdischen bisherigen Chef der Versandabteilung Sally Reiss (1876 – 1946) musste die Firma Knopf zum Datum der Übernahme des Betriebes durch Hölscher kündigen, wobei der Entlassungsgrund (‚durch die Zeitverhältnisse bedingt’) für sich spricht.“",
             "image": "kaufhaus_karstadt.png",
+            "latitude": 49.009571,
+            "longitude": 8.401813
+          },
+          {
+            "id": 7,
+            "name": "Badisches Innenministerium",
+            "description": "",
+            "image": "ministerium.png",
             "latitude": 49.009571,
             "longitude": 8.401813
           }
