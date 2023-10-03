@@ -5,7 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:test_project/directions_repository.dart';
+import 'package:tourify/directions_repository.dart';
 import '../helperClasses.dart';
 import '../directions_model.dart';
 
@@ -112,7 +112,7 @@ class MapSampleState extends State<MapSample> {
           ),
           if (_info != null)
             Padding(
-              padding: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: 60),
               child: Align(
                 alignment: AlignmentDirectional.topCenter,
                 child: Container(
@@ -210,7 +210,7 @@ class MapSampleState extends State<MapSample> {
                   },
                   child: Icon(Icons.view_carousel_rounded),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 70),
               ],
             ),
           ),
@@ -227,7 +227,7 @@ class MapSampleState extends State<MapSample> {
     controller.animateCamera(
         CameraUpdate.newCameraPosition(createCameraPosition(clickedMarker)));
     //2.
-    _updateUserPosition();
+    await _updateUserPosition();
     final directions = await DirectionsRepository(dio: Dio())
         .getDirections(origin: positionUser, destination: clickedMarker);
     setState(() => _info = directions);
@@ -267,7 +267,7 @@ class MapSampleState extends State<MapSample> {
 
   Future<void> _goToCurrentLocation() async {
     final GoogleMapController controller = await _controller.future;
-    _getCurrentLocation().then((value) {
+    await _getCurrentLocation().then((value) {
       latOfUser = double.parse('${value.latitude}');
       longOfUser = double.parse('${value.longitude}');
     });
@@ -286,8 +286,8 @@ class MapSampleState extends State<MapSample> {
     }
   }
 
-  void _updateUserPosition() {
-    _getCurrentLocation().then((value) {
+  Future<bool> _updateUserPosition() async {
+    await _getCurrentLocation().then((value) {
       latOfUser = double.parse('${value.latitude}');
       longOfUser = double.parse('${value.longitude}');
     });
@@ -295,6 +295,8 @@ class MapSampleState extends State<MapSample> {
       positionUser = LatLng(latOfUser,
           longOfUser); // Setzen die Position des Benutzers auf den zuletzt geklickten marker
     });
+
+    return true; // Rückgabetyp, damit sie mit await aufgerufen werden kann
   }
 
   CameraPosition createCameraPosition(LatLng latLngPosition) {

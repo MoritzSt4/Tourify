@@ -7,7 +7,7 @@ import 'package:flutter_config/flutter_config.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:test_project/directions_repository.dart';
+import 'package:tourify/directions_repository.dart';
 
 import 'helperClasses.dart';
 
@@ -153,7 +153,7 @@ class MapSampleState extends State<MapSample> {
                   },
                   child: Icon(Icons.view_carousel_rounded),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 70),
               ],
             ),
           ),
@@ -201,7 +201,7 @@ class MapSampleState extends State<MapSample> {
 
   Future<void> _goToCurrentLocation() async {
     final GoogleMapController controller = await _controller.future;
-    _getCurrentLocation().then((value) {
+    await _getCurrentLocation().then((value) {
       latOfUser = double.parse('${value.latitude}');
       longOfUser = double.parse('${value.longitude}');
     });

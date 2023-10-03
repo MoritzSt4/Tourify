@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test_project",
+            "name": "tourify",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "test_project (profile mode)",
+            "name": "tourify (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "test_project (release mode)",
+            "name": "tourify (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

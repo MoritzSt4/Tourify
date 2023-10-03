@@ -1,7 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_project/views/detailPage.dart';
+import 'package:tourify/views/detailPage.dart';
 
 //WidgedBuilder
 Widget buildCardWidget(Map<String, dynamic> tourData, BuildContext context) {

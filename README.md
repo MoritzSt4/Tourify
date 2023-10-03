@@ -1,4 +1,4 @@
-# test_project
+# tourify
 
 A new Flutter project.
 
