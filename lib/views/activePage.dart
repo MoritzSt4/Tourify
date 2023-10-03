@@ -3,9 +3,7 @@ import 'dart:convert' show jsonDecode;
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:test_project/directions_repository.dart';
 import '../helperClasses.dart';
@@ -20,7 +18,7 @@ class ActiveTourView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MapSample(
       tourData: tourData,
-    ); // Hier wird MapSample angezeigt
+    );
   }
 }
 
@@ -99,6 +97,7 @@ class MapSampleState extends State<MapSample> {
             },
             zoomControlsEnabled: false,
             myLocationEnabled: true,
+            myLocationButtonEnabled: false,
             markers: createMarkers(),
             polylines: {
               if (_info != null)
@@ -172,18 +171,6 @@ class MapSampleState extends State<MapSample> {
                 ),
                 SizedBox(height: 20),
                 FloatingActionButton(
-                  onPressed: () {
-                    _pageController.animateToPage(
-                      1,
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                    _goToTheCastle();
-                  },
-                  child: Icon(Icons.play_arrow),
-                ),
-                SizedBox(height: 20),
-                FloatingActionButton(
                   onPressed: _goToCurrentLocation,
                   child: Icon(Icons.gps_not_fixed),
                 ),
@@ -204,10 +191,6 @@ class MapSampleState extends State<MapSample> {
   }
 
   //Functions
-  Future<void> _goToTheCastle() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_castle));
-  }
 
   Future<void> _handleNavigate() async {
     //1. Kamerafahrt auf Marker
