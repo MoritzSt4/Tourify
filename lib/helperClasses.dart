@@ -6,7 +6,6 @@ import 'package:test_project/views/detailPage.dart';
 //WidgedBuilder
 Widget buildCardWidget(Map<String, dynamic> tourData, BuildContext context) {
   String imageFileName = tourData['image'];
-
   return GestureDetector(
     onTap: () {
       Navigator.of(context).push(
@@ -51,6 +50,50 @@ Widget buildCardWidget(Map<String, dynamic> tourData, BuildContext context) {
               ),
             ],
           ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget buildNonClickCardWidget(
+    Map<String, dynamic> tourData, BuildContext context) {
+  String imageFileName = tourData['image'];
+  return Container(
+    child: ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(10.0),
+        topRight: Radius.circular(10.0),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/images/$imageFileName',
+            ),
+            SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                tourData['title'],
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(height: 5),
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                tourData['description'],
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     ),

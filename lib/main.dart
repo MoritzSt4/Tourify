@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:test_project/directions_repository.dart';
 
-import 'directions_model.dart';
-
 import 'helperClasses.dart';
 
 void main() async {
@@ -49,7 +47,6 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
   bool isCardVisible = true;
-  Directions? _info = null;
 
   final PageController _pageController = PageController(initialPage: 0);
   final Completer<GoogleMapController> _controller =
@@ -77,24 +74,7 @@ class MapSampleState extends State<MapSample> {
             },
             zoomControlsEnabled: false,
             myLocationEnabled: true,
-            markers: {
-              const Marker(
-                  markerId: MarkerId("Sonnenbad"),
-                  position: LatLng(49.013406, 8.346916),
-                  infoWindow:
-                      InfoWindow(title: 'tour[x][name] (Sonnenbad)')), // Marker
-            },
-            polylines: {
-              if (_info != null)
-                Polyline(
-                  polylineId: const PolylineId('overview_polyline'),
-                  color: Colors.red,
-                  width: 5,
-                  points: _info!.polylinePoints // non-null assertion
-                      .map((e) => LatLng(e.latitude, e.longitude))
-                      .toList(),
-                ),
-            },
+            myLocationButtonEnabled: false,
           ),
           Positioned(
             bottom: 0, // Abstand zum unteren Rand
@@ -150,11 +130,6 @@ class MapSampleState extends State<MapSample> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                FloatingActionButton(
-                  onPressed: _handleNavigate,
-                  child: Icon(Icons.directions),
-                ),
-                SizedBox(height: 20),
                 FloatingActionButton(
                   onPressed: () {
                     _pageController.animateToPage(
@@ -233,16 +208,6 @@ class MapSampleState extends State<MapSample> {
     CameraPosition posUser = CameraPosition(
         bearing: 5, target: LatLng(latOfUser, longOfUser), zoom: 18);
     controller.animateCamera(CameraUpdate.newCameraPosition(posUser));
-  }
-
-  Future<void> _handleNavigate() async {
-    final directions = await DirectionsRepository(dio: Dio()).getDirections(
-        origin: LatLng(49.01376089808605, 8.40441737052201),
-        destination: LatLng(49.013406, 8.346916));
-    print(_info);
-    setState(() => _info = directions);
-    print("navigation gestartet");
-    print(_info);
   }
 
   void _handleSwipeToClose(DragUpdateDetails details) {
