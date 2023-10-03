@@ -12,7 +12,7 @@
             "id": 1,
             "title": "Karlsruher Schloss",
             "description": "Das Karlsruher Schloss, ein architektonisches Meisterwerk im Herzen der Stadt, verkörpert die historische Pracht und den Charme Karlsruhes. Dieses imposante Barockschloss, einst die Residenz der Markgrafen von Baden, ist ein wahres Juwel der Geschichte. Mit seiner markanten Kuppel und den eleganten Fassaden strahlt das Schloss majestätische Schönheit aus. Umgeben von weitläufigen Gärten und malerischen Alleen, lädt das Schlossgelände zum Flanieren und Entspannen ein. Im Inneren beeindrucken prunkvolle Räume, kunstvolle Deckenmalereien und kostbare Sammlungen von Kunst und Antiquitäten. Das Karlsruher Schloss ist nicht nur ein beeindruckendes architektonisches Highlight, sondern auch ein Fenster in die reiche Geschichte der Stadt, das Besucher aus aller Welt fasziniert.",
-            "image": "castle_karlsruhe.png",
+            "image": "castle_karlsruhe_2.png",
             "latitude": 49.01376089808605,
             "longitude": 8.40441737052201
         },
@@ -44,7 +44,7 @@
     },
     {
       "id": 2,
-      "title": "Foodspots",
+      "title": "Foodspots in Karlsruhe",
       "description": "Entdecke die kulinarische Vielfalt von Karlsruhe bei unserer Foodspots-Stadtführung! Wir nehmen dich mit zu den besten Essensplätzen der Stadt. Probiere traditionelle Leckerbissen, internationale Köstlichkeiten und süße Versuchungen. Lass dich durch die Geschichte der Gerichte führen und erlebe Karlsruhe auf eine köstliche neue Weise!",
       "detailDescription":"Entdecke Karlsruhe auf einer kulinarischen Reise durch einige der besten Foodspots der Stadt:\n\nDeliburger - Regionale Frische:\nDeliburger serviert erstklassige Burger mit regionalen Zutaten in gemütlichem Ambiente und ist ein idealer Ausgangspunkt für einen Besuch im Schlosspark.\n\nLehner's Wirtshaus - Deutsche Gastfreundschaft:\nLehner's Wirtshaus bietet herzhafte deutsche Gerichte in uriger Atmosphäre und eine Auswahl an deutschen Bieren.\n\nKebabi - Beliebter Geheimtipp:\nKebabi ist bekannt für köstliche Kebabs und türkische Spezialitäten und zieht oft viele Gäste an, daher empfiehlt es sich, früh zu kommen.\n\nMogogo - Exotische Aromen:\nBei Mogogo erwarten dich äthiopische Köstlichkeiten, serviert auf traditionellem Injera-Brot, in einer einladenden Atmosphäre.\n\nMin Ramen Bar - Japanische Köstlichkeiten:\nDie Min Ramen Bar ist ein Paradies für Liebhaber japanischer Küche, mit köstlichen Ramen-Nudelsuppen und authentischen Geschmacksrichtungen.\n\nEiscafé Casal - Süße Versuchung:\n Im Eiscafé Casal kannst du himmlisches Eis und Desserts genießen, begleitet von einer gemütlichen Café-Atmosphäre.",
       "duration": "3-5 Stunden",
