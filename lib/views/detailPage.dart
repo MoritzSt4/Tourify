@@ -56,7 +56,7 @@ class _DetailView extends State<DetailView> {
                       child: CircleAvatar(
                         radius: 6,
                         backgroundColor:
-                        i == currentIndex ? Colors.blue : Colors.white,
+                            i == currentIndex ? Colors.blue : Colors.white,
                       ),
                     ),
                 ],
@@ -72,7 +72,8 @@ class _DetailView extends State<DetailView> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ActiveTourView(),
+                    builder: (context) =>
+                        ActiveTourView(tourData: widget.tourData),
                   ),
                 );
               },

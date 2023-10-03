@@ -10,7 +10,7 @@
       "locations": [
         {
             "id": 1,
-            "name": "Karlsruher Schloss",
+            "title": "Karlsruher Schloss",
             "description": "Das Karlsruher Schloss, ein architektonisches Meisterwerk im Herzen der Stadt, verkörpert die historische Pracht und den Charme Karlsruhes. Dieses imposante Barockschloss, einst die Residenz der Markgrafen von Baden, ist ein wahres Juwel der Geschichte. Mit seiner markanten Kuppel und den eleganten Fassaden strahlt das Schloss majestätische Schönheit aus. Umgeben von weitläufigen Gärten und malerischen Alleen, lädt das Schlossgelände zum Flanieren und Entspannen ein. Im Inneren beeindrucken prunkvolle Räume, kunstvolle Deckenmalereien und kostbare Sammlungen von Kunst und Antiquitäten. Das Karlsruher Schloss ist nicht nur ein beeindruckendes architektonisches Highlight, sondern auch ein Fenster in die reiche Geschichte der Stadt, das Besucher aus aller Welt fasziniert.",
             "image": "castle_karlsruhe.png",
             "latitude": 49.01376089808605,
@@ -18,35 +18,27 @@
         },
         {
             "id": 2,
-            "name": "Marktplatz",
+            "title": "Marktplatz",
             "description": "Der Marktplatz ist der zentrale Platz in der Karlsruher Innenstadt. Er liegt an der Kreuzung der vom Schloss nach Süden ausgehenden zentralen Achse des fächerförmigen Stadtgrundrisses mit der Hauptgeschäftsstraße Kaiserstraße. Die beherrschenden Bauten des Platzes sind die Stadtkirche und ihr gegenüber das Rathaus, wie die gesamte Platzanlage klassizistische Entwürfe von Friedrich Weinbrenner. Auf dem Platz befindet sich die Karlsruher Pyramide. Sie ist das Wahrzeichen der Stadt und das Grabmal des Stadtgründers Markgraf Karl Wilhelm von Baden-Durlach.",
             "image": "central_square.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0092193,
+            "longitude": 8.4039025
         },
         {
             "id": 3,
-            "name": "Schlossgarten",
+            "title": "Botanischer Garten Karlsruhe",
             "description": "Der auf der nördlichen Schlossseite, zum Hardtwald gelegene Schlossgarten wurde zwischen 1731 und 1746 durch Christian Thran im französischen Barockstil angelegt. Noch im 18. Jahrhundert ließ Großherzog Karl Friedrich Teile des Parks zum englischen Landschaftsgarten umbauen. Anlässlich der Bundesgartenschau 1967 erfolgte eine Erneuerung und Weiterentwicklung im gleichen Stil. Neben zahlreichen seltenen Baumarten finden sich hier Kunstwerke, Denkmäler und Brunnen aus den verschiedenen Epochen vom Barock bis zur Moderne.[9] Ein Band aus 1645 blauen Majolika-Fliesen führt seit 2001 vom Schlossturm zu der am Rand des Schlossparks gelegenen Majolika-Manufaktur. 1967 wurde anlässlich der Bundesgartenschau die Schlossgartenbahn Karlsruhe in Betrieb genommen. Am westlichen Rande des Schlossgartens befindet sich der Botanische Garten Karlsruhe. Zwischen dem botanischen Garten und dem Vorplatz des Schlosses ist das Bundesverfassungsgericht (Baumgarten-Bau) ansässig.",
             "image": "castle_garden.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0133484,
+            "longitude": 8.4003173
         },  
         {
             "id": 4,
-            "name": "Bundesverfassungsgericht",
+            "title": "Bundesverfassungsgericht",
             "description": "Das Bundesverfassungsgericht (BVerfG) ist in der Bundesrepublik Deutschland als Verfassungsgericht des Bundes sowohl ein unabhängiges Verfassungsorgan der Justiz, ranggleich mit den anderen obersten Bundesorganen, als auch der oberste Gerichtshof auf Bundesebene. Es hat damit eine Doppelstellung und -funktion. Einerseits obliegt dem Bundesverfassungsgericht die Kontrolle des verfassungsmäßig bestimmten politischen Lebens, das es am Maßstab des Grundgesetzes interpretiert, dies unter besonderer Berücksichtigung der individuellen Grundrechte des Bürgers.[6][7] Insoweit wurde dem Gericht, in seiner Eigenschaft als Hüter der deutschen Verfassung, die grundlegende Ordnungsbefugnis über die Verfassung im gesellschaftlichen Wandel zuteil.",
             "image": "federal_constitutional_court.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
-        },
-        {
-          "id": 5,
-          "name": "HELLERSTEA°BAR",
-          "description": "Genieße im HELLERSTEA°BAR erstklassigen, biologisch angebauten Tee, der mit viel Liebe und Hingabe ausgewählt wird. Mit einer großen Sonnenterasse und stimmungsvollem Interior geniesßt du deinen Tee in entspannter und exklusiver Atmosphäre.",
-          "image": "castle_cafe.png",
-          "latitude": 49.01376089808605,
-          "longitude": 8.40441737052201
+            "latitude": 49.0126772,
+            "longitude": 8.4017673
         }
       ]
     },
@@ -61,51 +53,59 @@
       "locations": [
           {
             "id": 1,
-            "name": "DeliBurgers",
+            "title": "DeliBurgers",
             "description": "Willkommen bei Deliburger, dem Ort, an dem Qualität und Regionalität im Mittelpunkt stehen. Hier werden alle Zutaten sorgfältig aus der Region bezogen, um sicherzustellen, dass deine Burger mit frischen und hochwertigen Produkten zubereitet werden. Genieße den unverwechselbaren Geschmack der Heimat, während du in gemütlicher Atmosphäre speist. Und das Beste daran? Vom kleinen Innenbereich aus bist du nur einen kurzen Spaziergang vom Schlosspark entfernt, wo du dein Essen in entspannter Naturkulisse genießen kannst.",
             "image": "foodspots_deli.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0110259,
+            "longitude": 8.3959281
           },
           {
             "id": 2,
-            "name": "Lehner's Wirtshaus",
+            "title": "Lehner's Wirtshaus",
             "description": "Lehner's Wirtshaus ist der Inbegriff der deutschen Gastfreundschaft und Tradition. Hier erwarten dich herzhafte deutsche Gerichte, von Schnitzel bis Sauerkraut. Die urige Atmosphäre und die Auswahl an deutschen Bieren machen dieses Wirtshaus zu einem perfekten Ort, um die lokale Küche zu genießen und sich wohlzufühlen.",
             "image": "foodspots_lehners.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0090332,
+            "longitude": 8.3952163
           },
           {
             "id": 3,
-            "name": "Kebabi",
+            "title": "Kebabi",
             "description": "Kebabi ist zweifellos ein beliebter kulinarischer Geheimtipp in Karlsruhe. Die saftigen Kebabs und authentischen türkischen Spezialitäten haben eine treue Fangemeinde gewonnen. Wenn du hier essen möchtest, empfehlen wir dir, frühzeitig zu kommen, um lange Warteschlangen zu vermeiden. Der kleine Innenbereich bietet zwar begrenzten Platz, aber der Geschmack der Gerichte ist es absolut wert. Und nach dem Essen bist du nur einen Katzensprung vom Schlosspark entfernt, wo du deinen Gaumen und die grüne Umgebung in vollen Zügen genießen kannst.",
             "image": "foodspots_kebabi.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0100899,
+            "longitude": 8.3976072
           },
           {
             "id": 4,
-            "name": "Mogogo",
+            "title": "Restaurant Mogogo",
             "description": "Mogogo ist der Ort, an dem exotische Aromen und orientalische Köstlichkeiten aufeinandertreffen. Genieße authentische äthiopische Küche, serviert auf traditionellen Injera-Brot, das eine einzigartige Geschmacksexplosion bietet. Die warme und einladende Atmosphäre bei Mogogo sorgt dafür, dass du dich wie in Äthiopien fühlst, während du deine Mahlzeit genießt.",
             "image": "foodspots_mogogo.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0127711, 
+            "longitude": 8.3980001
           },
           {
             "id": 5,
-            "name": "Min Ramen Bar",
+            "title": "Min Ramen Bar",
             "description": "Die Min Ramen Bar ist ein Paradies für Liebhaber japanischer Küche. Hier kannst du köstliche Ramen-Nudelsuppen in verschiedenen Variationen probieren, die mit frischen Zutaten und hausgemachten Brühen zubereitet werden. Die minimalistische Einrichtung und die authentischen Geschmacksrichtungen machen diesen Ort zu einem Muss für Ramen-Fans.",
             "image": "foodspots_min.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0106522, 
+            "longitude": 8.3988846
           },
           {
             "id": 6,
-            "name": " Eiscafé Casal",
+            "title": " Eiscafé Casal",
             "description": "Verwöhne deinen Gaumen mit himmlischem Eis und leckeren Desserts im Eiscafé Casal. Hier findest du eine breite Palette an Eissorten, von traditionellen Klassikern bis zu kreativen Neukreationen. Die gemütliche Café-Atmosphäre und das freundliche Personal machen dieses Eiscafé zu einem perfekten Ort für eine süße Pause in Karlsruhe.",
             "image": "foodspots_casal.png",
-            "latitude": 49.01376089808605,
-            "longitude": 8.40441737052201
+            "latitude": 49.0100200, 
+            "longitude": 8.3970416
+          },
+          {
+            "id": 7,
+            "title": "HELLERSTEA°BAR",
+            "description": "Genieße im HELLERSTEA°BAR erstklassigen, biologisch angebauten Tee, der mit viel Liebe und Hingabe ausgewählt wird. Mit einer großen Sonnenterasse und stimmungsvollem Interior geniesßt du deinen Tee in entspannter und exklusiver Atmosphäre.",
+            "image": "castle_cafe.png",
+            "latitude": 49.0092951,
+            "longitude": 8.4028160
           }
         ]
       },
@@ -120,59 +120,59 @@
         "locations": [
           {
             "id": 1,
-            "name": "Synagoge Kronenstraße",
-            "description": "",
+            "title": "Synagoge Kronenstraße",
+            "description": "Die ehemalige Synagoge mit Altenheim und jüdischem Krankenhaus war im Jahr 1806 eingeweiht worden. Im Jahr 1871 brannte das Gebäude nieder, woraufhin vier Jahre später eine neue Synagoge aus weißem Sandstein im neohistorischen Stil der Kaiserzeit fertiggestellt wurde. Der Eingang befand sich zwischen der Mauer, an der heute die Gedenktafel zur Erinnerung an die Ereignisse des Jahres 1938 angebracht ist, und dem Eingang zum heutigen Haus der Familie (von der Straßenfront etwas zurückgesetzt). Am 9. November 1938 fand in Deutschland und Österreich die Reichspogromnacht statt: Staatlich organisierte Ausschreitungen gegen jüdische Bürgerinnen und Bürger und gegen jüdische Einrichtungen. Geschäfte, Wohnungen und Synagogen wurden unter Beteiligung von Teilen der deutschen Bevölkerung zerstört und verwüstet. Dabei wurden etwa 400 Menschen ermordet oder in den Tod getrieben. Obwohl SA-Leute während der Pogromnacht in Karlsruhe laut Aussagen eines an den Löscharbeiten beteiligten Feuerwehrmannes zahlreiche Brandnester in der Synagoge in der Kronenstraße gelegt hatten, geriet diese aufgrund ihrer massiven Bauweise nicht richtig in Brand. Wie der Feuerwehrmann weiter berichtet, befand sich hinter dem Gebäude ein Benzinlager, so dass ein Großfeuer vermieden werden musste, weil kein Besitz nichtjüdischer Stadtbewohner gefährdet werden durfte und eine Explosion verheerende Folgen für die Umgebung gehabt hätte. ! Obwohl die Synagoge kaum beschädigt war und durchaus weiterhin in vollem Umfang hätte genutzt werden können, wurde der Abbruch wegen angeblicher Baufälligkeit angeordnet. Die Kosten dafür von insgesamt fast 27.000 RM (Reichsmark) für beide Synagogen hatte die jüdische Gemeinde zu tragen. Die abgetragenen Steine wurden zum Straßenbau in der Friedrichstaler Allee verwendet. (2] In der Nacht Reichspogromnacht wurden 400-500 jüdische Karlsruher verhaftet und später in das Konzentrationslager Dachau deportiert.",
             "image": "synagoge.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0097948,
+            "longitude":  8.4082349
           },
           {
             "id": 2,
-            "name": "Jüdische Schule, Markgrafenstraße",
-            "description": "",
+            "title": "Jüdische Schule, Markgrafenstraße",
+            "description": "Bereits zehn Tage nach Erlass der „Nürnberger Gesetze, die die juristische Basis für Diskriminierung und Verfolgung bildeten, ordnete Reichserziehungsminister Rust eine Erhebung über die Rassenzugehörigkeit an, um zum neuen Schuljahr Ostern 1936 so genannte Judenschulen einzurichten. In Karlsruhe hatte bereits am 30. August 1935 der Leiter des Stadtschulamtes gegenüber seinem badischen Minister die Absicht ausgedrückt, Juden in Sonderklassen zu erfassen. Der Reichserziehungsminister äußerte sich folgendermaßen: „Kinder jüdischer Abstammung bilden für die Einheitlichkeit der Klassengemeinschaft und die ungestörte Durchführung der nationalsozialistischen Jugenderziehung auf den allgemeinen Öffentlichen Schulen ein starkes Hindernis. Schon im Oktober sollten sie in einem eigenen Schulgebäude unterrichtet werden. Die jüdische Gemeinde sollte das der Heilsarmee gehörende Haus in der Adlerstr. 33 kaufen. Ein großer Teil der Anwohner protestierte bei den Behörden energisch dagegen, ,..da die Straße viel an Ansehen verlieren würde. Die jüdischen Verbände unterstützen die Einrichtung einer jüdischen Schule, um die Kinder vor der immer stärkeren Diskriminierung und Verfolgung zu schützen. So wurden dann ab September 1936 für die Volksschüler einige Räume in der Lidellschule in der Markgrafenstraße eingerichtet. Dort befand sich eine Sonderschule, in der einige Räume leer standen. Bei der Eröffnung am 9. September 1936 betrug die Schülerzahl 212 Kinder mit 3 Lehrkräften, die von der jüdischen Gemeinde bezahlt wurden. Diese waren: Josef Hausmann, ehemals Mathematiklehrer am Markgrafen-Gymnasium, Cäcilie Schweizer, ehemals Lehrerin am Fichte-Gymnasium und Prof. Dr. Ludwig Marx. Die jüdische Schule hatte hervorragende Lehrkräfte und konnte auf eine große Anzahl 1933 entlassener Lehrer und Professoren zurückgreifen. So konnten schnell die durch Auswanderung freigewordenen Stellen besetzt werden. Ein Schwerpunkt lag neben der jüdischen Religion auf den Sprachen Hebräisch und Englisch, um den jungen Menschen später eine Auswanderung zu erleichtern. Am 11. November 1938, nach der Reichspogromnacht, mussten auch die Oberschüler die deutschen Schulen verlassen. Aufgrund des Erlasses vom 17. Dezember 1938, in dem der Reichserziehungsminister allein schon das Betreten der Schulgebäude für Juden verbot, zog die jüdische Schule in das Gebäude der jüdischen Gemeinde in der Kronenstraße 15 um. Aber auch dort konnte nur für kurze Zeit Unterricht erteilt werden - durch den Abriss der Synagoge musste die jüdische Schule in einen Raum in der Herrenstraße 14 umziehen. Im Juni 1939 waren gerade noch 90 Kinder in der jüdischen Schule. Durch Auswanderung und durch die Kindertransporte jüdischer Organisationen nach England schrumpfte die Zahl ständig. Die Massendeportation der jüdischen Bürgerinnen und Bürger Karlsruhes, einschließlich der Schulkinder und Lehrer, am 22. Oktober 1940 in das Lager Gurs in Frankreich führte zur endgültigen Schließung der Schule.  Heute erinnert an die Lidellschule nur noch das ehemalige Eingangsportal. An dem dort angebrachten blauen Schild fehlt allerdings jegliche Information über die jüdische Schule, die dort verortet war.",
             "image": "schule.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0076965,
+            "longitude":  8.4080037
           },
           {
             "id": 3,
-            "name": "Polizeipräsidium Marktplatz",
-            "description": "",
+            "title": "Polizeipräsidium Marktplatz",
+            "description": "An der Ecke Karl-Friedrich-Straße / Hebelstraße befand sich das Karlsruher Polizeipräsidium. Verhaftete, ob politische Gegner, Bürger jüdischen Glaubens oder andere, wurden hier verhört und gequält. Davon berichtet auch die Zeitzeugin Hanne Landgraf Bei der Besetzung der Redaktion der SPD-Zeitung ‚Volksfreund' durch SA-Trupps am 10. März 1933 wurden alle dort angetroffenen Menschen in das Präsidium verschleppt, u. a. Remmele, Marum und Furrer. Nachdem sie verhört worden waren, wurden sie im Gefängnis in der Riefstahlstraße gefangen gehalten, bis sie am 16. März 1933 mit einer Schaufahrt durch die Karlsruher Innenstadt, bei der sie beschimpft und ausgepfiffen wurden, ins KZ Kislau gebracht wurden.",
             "image": "polizei.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0079259, 
+            "longitude": 8.4040790
           },
           {
             "id": 4,
-            "name": "Führer-Verlag",
-            "description": "",
+            "title": "Führer-Verlag",
+            "description": "Der nationalsozialistische Führer-Verlag gab das badische Partei-Organ , Der Führer' heraus, das seit 1. November 1927 in Karlsruhe veröffentlicht wurde. Zunächst wöchentlich herausgegeben, wurde Der Führer ab dem 1. August 1930 zur Tageszeitung. Nach der Machtübernahme wurden in Baden bis Ende Februar 1933 bereits in über 16 Fällen oppositionelle Zeitungen durch Innenminister Frick verboten, darunter der Badische Beobachter' und der , Volksfreund'(1). Im Jahr 1935 gehörte die Diskriminierung der Jüdinnen und Juden zum Alltagsleben der Stadt. Oberbürgermeister Jäger reagierte auf angeblich spontane Unmutsäußerungen des deutschstämmigen Publikums, das am Eingang des Rheinstrandbades Rappenwört Schilder mit der Aufschrift Juden unerwünscht aufgestellt hatte: Er verhängte in allen Bädern ein Badeverbot für Bürger jüdischen Glaubens. Der Führer berichtete am 24. Juli 1935 darüber als „eine erfreuliche Maßnahme der Stadtverwaltung.(2] Frau R., die als Kind gegenüber im Haus Kreuzstr. 6-8 gewohnt hatte, berichtet über Auseinandersetzungen zwischen den Nazis und ihren Gegnern vor dem Sitz des Führer-Verlags: ...] der Zeitungs-Führer-Verlag, neben dem Schöpf. Da war halt immer was los. Da war halt nächtelang was los. Diese SA gegen diese - ,Nazi verrecke' hat's dann geheißen - gegen diese Widerstand-Aufmärsche.",
             "image": "verlag.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0093767,
+            "longitude":  8.4051160
           },
           {
             "id": 5,
-            "name": "Schlossplatz – Bücherverbrennung",
-            "description": "",
+            "title": "Schlossplatz – Bücherverbrennung",
+            "description": "In Karlsruhe kam es am 17. Juni 1933 auf dem Schlossplatz im Rahmen einer Sonnwendfeier zur Bücherverbrennung. In einer sogenannten „kulturellen Kampfwoche' hatten vier Kolonnen der Hitlerjugend systematisch die Buchhandlungen und Bibliotheken durchkämmt und die Bücher „nicht- arischer' und marxistischer Autoren beschlagnahmt. „Ein Kommando von 12 Jungs hielt unterdessen den Eingang frei und sicherte gegen die rasch zusammengelaufene, neugierig vordrängende Menge. In den mitgeführten Leiterwagen wurden die gesammelten Bücher dann ins Bezirksamt geführt, wo im Laufe des Nachmittags fünf bis an den Rand gefüllte Wagen entleert wurden. Trotz starken Regens wurden die Bücher am 17. Juni 1933 im Rahmen der Sonnwendfeier auf dem Schlossplatz verbrannt. Der neue badische Kultusminister Otto Wacker hielt die „Brandrede' . Dies war der Auftakt zu einer Säuberungswelle aller Bibliotheken. So wurden allein in der Stadtbibliothek über 3000 Werke jüdischer, marxistischer, pazifistischer und anderer den Nationalsozialisten unliebsamer Autorinnen und Autoren , vernichtet. Die nationalsozialistische Presse stellte das Ereignis folgendermaßen dar: 12] „Vor dem Karl-Friedrich-Denkmal ist ein Scheiterhaufen errichtet. Von einem Lastwagen aus warfen Hitlerjungens Schmutzlektüre darauf. Eine regenschirmbewaffnete Zuschauermenge hat sich eingefunden und wartet auf den Anmarsch der Kolonnen. Regentriefende Schupos halten den Platz vor dem Denkmal für die Jugend frei. Dumpfes Trommelschlagen aus der Ferne kündet das Nahen der Züge. Und dann kommen sie heran. HJ in strammem Marschtritt, voran ein Spielmannszug. Liederschmetterndes Jungvolk, singende Mädels des B.d.M. Lachende Gesichter. Der Teufel könnte diese Jugend nicht hindern, zu marschieren.' Im November 1933 wurde die Reichsschrifttumskammer (RSK) gegründet. Sie war eine der sieben Abteilungen der von Joseph Goebbels ins Leben gerufenen Reichskulturkammer, deren Ziel es war, das kulturelle Leben lückenlos zu kontrollieren. Die RSK stellte die Standesvertretung der Schriftsteller im Nationalsozialismus dar. Ab dem Jahr 1934 musste jeder der veröffentlichen wollte in der RSK Mitglied sein. Wer keinen sogenannten ,Ariernachweis' erbringen konnte, wurde entweder erst gar nicht aufgenommen oder von der Kammer ausgeschlossen. Dies kam einem Berufsverbot gleich. In erster Linie waren jüdische Schriftsteller betroffen, aber auch solche, deren Werke aus Sicht der Nationalsozialisten „volksschädlich' waren. An die deutsche Literatur gerichtet war der Auftrag der „geistigen Erneuerung', was der Forderung entsprach, durch die schriftstellerische Tätigkeit die nationalsozialistische Ideologie zu unterstützen.",
             "image": "verbrennung.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0111398,
+            "longitude":  8.4041119
           },
           {
             "id": 6,
-            "name": "Kaufhaus Karstadt",
+            "title": "Kaufhaus Karstadt",
             "description": "An der Stelle des heutigen Kaufhauses Karstadt befand sich das Kaufhaus der Geschwister Knopf. Das Kaufhaus, das eines der ältesten jüdischen Kaufhäuser der Stadt war, wurde 1881 von den Geschwistern Max und Johanna Knopf gegründet und wuchs mit Unterstützung weiterer Familienmitglieder zu einem großen Kaufhausimperium, das sich vor dem I. Weltkrieg über 60-80 Filialen in ganz Deutschland und der Schweiz erstreckte. Das Zentrum und Herzstück dieser beeindruckenden Dynastie lag in der Karlsruher Kaiserstraße. Das prächtige Gebäude im neoklassizistischen Stil umfasste eine Fläche von etwa 3000qm² und erstreckte sich über fünf Stockwerke. Im Jahre 1931 hatte sich das Kaufhaus Knopf mit mehr als 500 Angestellten bereits zum größten Warenhaus Badens entwickelt und war zu einer Marke geworden, mit der man sich in Karlsruhe identifizierte. Mit der Machtübernahme Hitlers veränderte sich die Geschichte des Traditionskaufhauses schlagartig. Die Alleinerbin Margarete Levis (geb. Knopf)  wurde im Zuge der Arisierung zum Verkauf all ihrer Kaufhäuser gezwungen – Die Filiale in Karlsruhe musste sie schließlich am 29.07.1939 an die Friedrich Hölscher AG verkaufen. Für die jüdischen Beschäftigten führte dies zur Kündigung und meist in die Arbeitslosigkeit. „Dem jüdischen bisherigen Chef der Versandabteilung Sally Reiss (1876 – 1946) musste die Firma Knopf zum Datum der Übernahme des Betriebes durch Hölscher kündigen, wobei der Entlassungsgrund (‚durch die Zeitverhältnisse bedingt’) für sich spricht.“",
             "image": "kaufhaus_karstadt.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0095080,
+            "longitude":  8.4018585
           },
           {
             "id": 7,
-            "name": "Badisches Innenministerium",
-            "description": "",
+            "title": "Badisches Innenministerium",
+            "description": "Am 9. März 1933 zwang Robert Wagner als Reichskommissar die demokratische badische Regierung zum Rücktritt und ließ etwa dreitausend Mann von SA- und SS-Einheiten vor dem badischen Innenministerium am Karlsruher Schlossplatz aufmarschieren. SA, SS und Polizeiverbände erzwangen die Machtergreifung im Land innerhalb weniger Tage. Das Badische Innenministerium am Schlossplatz 19 war die maßgebliche Schaltstelle für die Verfolgung jüdischer BürgerInnen und auch eine Zentrale der Verfolgung und Vernichtung von kranken, behinderten und als „asozial' diffamierten Menschen. Mit dem „Gesetz zur Verhütung erbkranken Nachwuchses' vom 14. Juli 1933 war die rechtliche Grundlage für Zwangssterilisierungen geschaffen worden. Dr. Theodor Pakheiser, der Sonderkommissar für das Gesundheitswesen, sorgte dafür, dass das Gesetz Anwendung fand. Baden übertraf im Jahr 1934 alle anderen Länder mit etwa drei Sterilisationsanträgen auf tausend Einwohner; im Durchschnitt genehmigten die „Erbgesundheitsgerichte' 94 % der Anträge. Zwischen 1934 und 1944 wurden in zehn badischen Bezirken mit 1,2 Millionen Einwohnern 11.412 Menschen zwangssterilisiert. Mit dem Begriff „Euthanasie' wurde die Ermordung behinderter Menschen bezeichnet. Diese Morde wurden in Baden vom Ministerialrat Dr. Ludwig Sprauer organisiert, dem Leiter der Gesundheitsabteilung im Badischen Innenministerium. Sprauer leitete die „Euthanasie'-Mordaktion in Baden mit einem geheimen Rundschreiben an die Leiter der Heil- und Pflegeanstalten ein. Dem Schreiben vom 29.11.1939 beigelegt waren Meldebögen, die Angaben zur Person, Staatsangehörigkeit, Diagnose, Art der Beschäftigung in der Anstalt und andere, auch rassistische Angaben forderten. Anhand dieser Angaben wurde dann über Leben und Tod entschieden. 12] Heute befindet sich in dem Gebäudekomplex die Hector School of Engineering and Management der Universität Karlsruhe. Heute befindet sich dort das International Department des Karlsruher Instituts für Technologie.",
             "image": "ministerium.png",
-            "latitude": 49.009571,
-            "longitude": 8.401813
+            "latitude": 49.0103987,
+            "longitude":  8.4020047
           }
         ]
       }
