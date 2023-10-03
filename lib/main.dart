@@ -1,14 +1,11 @@
 import 'dart:async';
 import 'dart:convert' show jsonDecode;
-import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:tourify/directions_repository.dart';
-
 import 'helperClasses.dart';
 
 void main() async {
@@ -31,19 +28,20 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(
               seedColor: Color.fromARGB(255, 219, 236, 255)),
         ),
-        home: MapSample(),
+        home: MainMap(),
       ),
     );
   }
 }
 
-class MapSample extends StatefulWidget {
-  const MapSample({super.key});
+class MainMap extends StatefulWidget {
+  const MainMap({super.key});
   @override
-  State<MapSample> createState() => MapSampleState();
+  State<MainMap> createState() => MainMapState();
 }
 
-class MapSampleState extends State<MapSample> {
+class MainMapState extends State<MainMap> {
+  //Default Werte
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
   bool isCardVisible = true;
@@ -55,11 +53,6 @@ class MapSampleState extends State<MapSample> {
     target: LatLng(49.015029983797106, 8.390162377008094),
     zoom: 16,
   );
-  static const CameraPosition _castle = CameraPosition(
-      bearing: 5,
-      target: LatLng(49.01376089808605, 8.40441737052201),
-      tilt: 60,
-      zoom: 18);
 
   @override
   Widget build(BuildContext context) {
@@ -131,18 +124,6 @@ class MapSampleState extends State<MapSample> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FloatingActionButton(
-                  onPressed: () {
-                    _pageController.animateToPage(
-                      1,
-                      duration: Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                    _goToTheCastle();
-                  },
-                  child: Icon(Icons.play_arrow),
-                ),
-                SizedBox(height: 20),
-                FloatingActionButton(
                   onPressed: _goToCurrentLocation,
                   child: Icon(Icons.gps_not_fixed),
                 ),
@@ -163,10 +144,6 @@ class MapSampleState extends State<MapSample> {
   }
 
   //Functions
-  Future<void> _goToTheCastle() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_castle));
-  }
 
   Future<List<dynamic>> readJson() async {
     final String response =
@@ -181,7 +158,7 @@ class MapSampleState extends State<MapSample> {
     List<Widget> citytourList = []; // enthät die Karten der Touren
     for (int i = 0; i < citytourJsonContent.length; i++) {
       citytourList.add(
-        buildCardWidget(citytourJsonContent[i], context),
+        buildCardWidget(citytourJsonContent[i], context, true),
       );
     }
     return citytourList;

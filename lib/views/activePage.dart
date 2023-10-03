@@ -246,7 +246,7 @@ class MapSampleState extends State<MapSample> {
     List<Widget> citytourList = []; // enthät die Karten der Touren
     for (int i = 0; i < citytourLocationsContent.length; i++) {
       citytourList.add(
-        buildNonClickCardWidget(citytourLocationsContent[i], context),
+        buildCardWidget(citytourLocationsContent[i], context, false),
       );
     }
 
