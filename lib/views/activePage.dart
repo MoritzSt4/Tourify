@@ -115,48 +115,45 @@ class MapSampleState extends State<MapSample> {
             bottom: 0, // Abstand zum unteren Rand
             left: 0, // Abstand zum linken Rand
             right: 0, // Abstand zum rechten Rand
-            child: GestureDetector(
-              onVerticalDragUpdate: _handleSwipeToClose,
-              child:
-                  isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
-                      ? Container(
-                          height: MediaQuery.of(context).size.height * 0.65,
-                          margin: EdgeInsets.all(16.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                blurRadius: 10,
-                                spreadRadius: 2,
-                                offset: Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: FutureBuilder<List<Widget>>(
-                            //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
-                            future: readAndBuildCards(context),
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState ==
-                                  ConnectionState.waiting) {
-                                return CircularProgressIndicator(); // Loading indicator
-                              } else if (snapshot.hasError) {
-                                return Text(
-                                    'Error loading cards'); // Error message
-                              } else if (snapshot.hasData) {
-                                return PageView(
-                                  controller: _pageController,
-                                  children: snapshot.data!,
-                                ); // List of widgets
-                              } else {
-                                return Text('No data'); // Other states
-                              }
-                            },
-                          ),
-                        )
-                      : SizedBox(),
-            ),
+            child:
+                isCardVisible // die Cards werden nur angezeigt, wenn isCardVisible true ist
+                    ? Container(
+                        height: MediaQuery.of(context).size.height * 0.65,
+                        margin: EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: FutureBuilder<List<Widget>>(
+                          //FutureBuilder ist ein Error handler aufgrund der asychronen Funktion vonm readAndBuildCards
+                          future: readAndBuildCards(context),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return CircularProgressIndicator(); // Loading indicator
+                            } else if (snapshot.hasError) {
+                              return Text(
+                                  'Error loading cards'); // Error message
+                            } else if (snapshot.hasData) {
+                              return PageView(
+                                controller: _pageController,
+                                children: snapshot.data!,
+                              ); // List of widgets
+                            } else {
+                              return Text('No data'); // Other states
+                            }
+                          },
+                        ),
+                      )
+                    : SizedBox(),
           ),
           AnimatedPositioned(
             duration: Duration(milliseconds: 300), // Animationsdauer
@@ -217,7 +214,7 @@ class MapSampleState extends State<MapSample> {
     List<Widget> citytourList = []; // enthät die Karten der Touren
     for (int i = 0; i < citytourLocationsContent.length; i++) {
       citytourList.add(
-        buildCardWidget(citytourLocationsContent[i], context),
+        buildNonClickCardWidget(citytourLocationsContent[i], context),
       );
     }
     return citytourList;
