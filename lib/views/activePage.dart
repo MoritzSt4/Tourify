@@ -39,6 +39,7 @@ class MapSampleState extends State<MapSample> {
   double latOfUser = 49.01376089808605;
   double longOfUser = 8.40441737052201;
   bool isCardVisible = false;
+  bool isNavVisible = false;
   Directions? _info = null;
 
   LatLng clickedMarker = LatLng(
@@ -53,11 +54,6 @@ class MapSampleState extends State<MapSample> {
     target: LatLng(49.015029983797106, 8.390162377008094),
     zoom: 16,
   );
-  static const CameraPosition _castle = CameraPosition(
-      bearing: 5,
-      target: LatLng(49.01376089808605, 8.40441737052201),
-      tilt: 60,
-      zoom: 18);
 
   //Erstellt die Marker der jeweiligen Tour
   Set<Marker> createMarkers() {
@@ -77,6 +73,9 @@ class MapSampleState extends State<MapSample> {
             setState(() {
               clickedMarker = LatLng(latitude,
                   longitude); // Setzen der clickedMarker auf den zuletzt geklickten marker
+            });
+            setState(() {
+              isNavVisible = true;
             });
           }));
     }
@@ -162,10 +161,11 @@ class MapSampleState extends State<MapSample> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                FloatingActionButton(
-                  onPressed: _handleNavigate,
-                  child: Icon(Icons.directions),
-                ),
+                if (isNavVisible)
+                  FloatingActionButton(
+                    onPressed: _handleNavigate,
+                    child: Icon(Icons.directions),
+                  ),
                 SizedBox(height: 20),
                 FloatingActionButton(
                   onPressed: _goToCurrentLocation,
@@ -217,6 +217,7 @@ class MapSampleState extends State<MapSample> {
         buildNonClickCardWidget(citytourLocationsContent[i], context),
       );
     }
+
     return citytourList;
   }
 
@@ -260,7 +261,7 @@ class MapSampleState extends State<MapSample> {
     });
     setState(() {
       positionUser = LatLng(latOfUser,
-          longOfUser); // Setzen der clickedMarker auf den zuletzt geklickten marker
+          longOfUser); // Setzen die Position des Benutzers auf den zuletzt geklickten marker
     });
   }
 
