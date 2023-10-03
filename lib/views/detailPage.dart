@@ -36,9 +36,18 @@ class _DetailView extends State<DetailView> {
                 }
               });
             },
-            child: Image.asset(
-              imagesList[currentIndex],
-              fit: BoxFit.cover,
+            child: Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.66,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(imagesList[currentIndex]),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Positioned(
