@@ -112,6 +112,38 @@ class MapSampleState extends State<MapSample> {
                 ),
             },
           ),
+          if (_info != null)
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Align(
+                alignment: AlignmentDirectional.topCenter,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 6,
+                    horizontal: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    '${_info?.totalDistance}',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           Positioned(
             bottom: 0, // Abstand zum unteren Rand
             left: 0, // Abstand zum linken Rand
