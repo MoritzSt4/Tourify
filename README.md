@@ -28,7 +28,7 @@ Tourify offers a unique experience by allowing you to choose from a variety of c
 
  ## Support and Feedback
 
-If you encounter any issues or have feedback to improve Tourify, please reach out to us through the following channels:
+If you encounter any issues or have feedback to improve Tourify, please reach out to us through the following channel:
 
 - Email: [MoritzStaOriginal@gmail.com](mailto:MoritzStaOriginal@gmail.com)
 
