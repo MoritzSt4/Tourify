@@ -1,4 +1,5 @@
-# Tourify - Your Minimalistic City Guide - Android Flutter App
+# Tourify  
+## Your Minimalistic City Guide - Android Flutter App
 
 Welcome to Tourify, the simple and clean city guide app that helps you explore your favorite cities effortlessly.
 
