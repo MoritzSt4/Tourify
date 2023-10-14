@@ -10,6 +10,13 @@ Welcome to Tourify, the simple and clean city guide app that helps you explore y
 
 Tourify offers a unique experience by allowing you to choose from a variety of city guides and navigate through them with ease. Whether you're a local looking to discover hidden gems in your city or a traveler exploring new destinations, Tourify has you covered.
 
+## Demo
+
+[Demo Video (youtube)](https://www.youtube.com/watch?v=2nJ4CxCGlVw&ab_channel=nicklympus)
+
+
+
+
 ## Project Information
 
 - **.env File:**
